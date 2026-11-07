@@ -256,3 +256,19 @@ export function enhanceMainNavigation(): void {
   document.body.appendChild(sidebar);
 }
 
+export function collapseSidebarNav(): void {
+  const sidebar = document.getElementById('lc-sidebar-nav');
+  document.documentElement.classList.add('lc-sidebar-collapsed');
+  if (sidebar) {
+    sidebar.classList.add('collapsed');
+    const toggleBtn = sidebar.querySelector('.lc-sidebar-toggle-btn') as HTMLButtonElement | null;
+    if (toggleBtn) {
+      toggleBtn.innerHTML = '';
+      toggleBtn.appendChild(
+        renderLucide(PanelLeftOpen, { size: 16, stroke: 'currentColor' })
+      );
+      toggleBtn.title = 'Expand sidebar';
+    }
+  }
+}
+

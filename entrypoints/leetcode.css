@@ -2572,9 +2572,9 @@ html.lc-theme .pagination span:has(a) {
 
 /* All pagination page buttons (Default State) */
 html.lc-theme .pagination .page-index a,
-html.lc-theme .pagination span > a,
+html.lc-theme .pagination span>a,
 html.lc-theme .pagination li a,
-html.lc-theme .pagination > a,
+html.lc-theme .pagination>a,
 html.lc-theme .pagination .page-index:not(:has(a)) {
   display: inline-flex !important;
   align-items: center !important;
@@ -2599,9 +2599,9 @@ html.lc-theme .pagination .page-index:not(:has(a)) {
 
 /* Hover state */
 html.lc-theme .pagination .page-index a:hover,
-html.lc-theme .pagination span > a:hover,
+html.lc-theme .pagination span>a:hover,
 html.lc-theme .pagination li a:hover,
-html.lc-theme .pagination > a:hover {
+html.lc-theme .pagination>a:hover {
   background: #2a2a2a !important;
   border-color: #444444 !important;
   color: #ffffff !important;
@@ -2663,119 +2663,1134 @@ html.lc-theme .pagination span:not(.page-index):not(:has(a)) {
 }
 
 /* ==========================================================================
-   Problem Statement Page (LeetCode Problem View)
+   Problem Statement Page (LeetCode Problem View - Minimalist Dark Aesthetic)
    ========================================================================== */
 
 html.lc-theme .problem-statement {
-  background: var(--lc-bg-card) !important;
-  border: 1px solid var(--lc-border) !important;
-  border-radius: 8px !important;
-  padding: 24px 28px !important;
-  color: var(--lc-text-primary) !important;
+  background: #1e1e1e !important;
+  border: 1px solid #333333 !important;
+  border-radius: 16px !important;
+  padding: 28px 36px !important;
+  color: #eff1f6 !important;
   box-shadow: none !important;
+  font-size: 14.5px !important;
+  line-height: 1.7 !important;
 }
 
 html.lc-theme .problem-statement .header {
-  border-bottom: 1px solid var(--lc-border-subtle) !important;
-  padding-bottom: 16px !important;
-  margin-bottom: 20px !important;
+  border-bottom: 1px solid #2d2d2d !important;
+  padding-bottom: 18px !important;
+  margin-bottom: 24px !important;
+  text-align: left !important;
 }
 
 html.lc-theme .problem-statement .header .title {
-  font-size: 24px !important;
+  font-size: 26px !important;
   font-weight: 700 !important;
   color: #ffffff !important;
   letter-spacing: -0.3px;
-  margin-bottom: 12px !important;
+  margin-bottom: 14px !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+  flex-wrap: wrap !important;
 }
 
-html.lc-theme .problem-statement .header .time-limit,
-html.lc-theme .problem-statement .header .memory-limit,
-html.lc-theme .problem-statement .header .input-file,
-html.lc-theme .problem-statement .header .output-file {
-  display: inline-block !important;
-  background: rgba(255, 255, 255, 0.05) !important;
-  border: 1px solid var(--lc-border) !important;
-  border-radius: 6px !important;
-  padding: 3px 8px !important;
-  font-size: 11px !important;
-  color: var(--lc-text-secondary) !important;
-  margin-right: 8px !important;
-  margin-bottom: 6px !important;
+/* Problem Difficulty Chip beside title */
+.lc-title-diff-chip {
+  font-size: 12px !important;
+  font-weight: 600 !important;
+  padding: 3px 12px !important;
+  border-radius: 20px !important;
+  letter-spacing: 0.2px;
+  display: inline-flex !important;
+  align-items: center !important;
+}
+
+.lc-title-diff-chip.lc-diff-easy {
+  background: rgba(0, 184, 163, 0.15) !important;
+  color: #00b8a3 !important;
+  border: 1px solid rgba(0, 184, 163, 0.3) !important;
+}
+
+.lc-title-diff-chip.lc-diff-medium {
+  background: rgba(255, 161, 22, 0.15) !important;
+  color: #ffa116 !important;
+  border: 1px solid rgba(255, 161, 22, 0.3) !important;
+}
+
+.lc-title-diff-chip.lc-diff-hard {
+  background: rgba(255, 55, 95, 0.15) !important;
+  color: #ff375f !important;
+  border: 1px solid rgba(255, 55, 95, 0.3) !important;
+}
+
+/* Specs Row (Time Limit, Memory Limit, I/O) */
+.lc-specs-row {
+  display: flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+  flex-wrap: wrap !important;
+  margin-top: 6px !important;
+}
+
+.lc-spec-chip {
+  background: #252525 !important;
+  border: 1px solid #383838 !important;
+  border-radius: 8px !important;
+  padding: 4px 10px !important;
+  color: #9ca3af !important;
+  font-size: 12px !important;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  box-shadow: none !important;
+}
+
+/* Problem Body Typography */
+html.lc-theme .problem-statement p {
+  color: #d1d5db !important;
+  margin-bottom: 16px !important;
+  line-height: 1.7 !important;
+}
+
+html.lc-theme .problem-statement .section-title {
+  color: #eff1f6 !important;
+  font-size: 16px !important;
+  font-weight: 700 !important;
+  margin-top: 28px !important;
+  margin-bottom: 10px !important;
+  letter-spacing: -0.2px;
 }
 
 /* Sample test cases */
 html.lc-theme .sample-tests {
-  margin-top: 24px !important;
-}
-
-html.lc-theme .sample-tests .section-title {
-  color: var(--lc-text-primary) !important;
-  font-size: 15px !important;
-  font-weight: 600 !important;
-  margin-bottom: 10px !important;
+  margin-top: 28px !important;
 }
 
 html.lc-theme .sample-test {
-  background: #181b22 !important;
-  border: 1px solid var(--lc-border) !important;
-  border-radius: 8px !important;
+  background: #181818 !important;
+  border: 1px solid #333333 !important;
+  border-radius: 12px !important;
   overflow: hidden !important;
+  margin: 18px 0 !important;
+  box-shadow: none !important;
 }
 
 html.lc-theme .sample-test .input,
 html.lc-theme .sample-test .output {
   border: none !important;
-  padding: 12px 16px !important;
-  position: relative;
+  padding: 14px 18px !important;
+  position: relative !important;
+  background: transparent !important;
+}
+
+html.lc-theme .sample-test .input {
+  border-bottom: 1px solid #282828 !important;
 }
 
 html.lc-theme .sample-test .title {
-  color: var(--lc-accent-orange) !important;
-  font-size: 12px !important;
+  color: #9ca3af !important;
+  font-size: 11px !important;
   font-weight: 600 !important;
   text-transform: uppercase !important;
   letter-spacing: 0.5px !important;
-  margin-bottom: 6px !important;
+  margin-bottom: 8px !important;
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
 }
 
 html.lc-theme .sample-test pre {
   background: transparent !important;
-  color: #38bdf8 !important;
+  color: #f1f5f9 !important;
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace !important;
-  font-size: 13px !important;
-  line-height: 1.5 !important;
+  font-size: 13.5px !important;
+  line-height: 1.6 !important;
   margin: 0 !important;
   padding: 0 !important;
 }
 
 /* Copy button for test cases */
 .lc-copy-btn {
-  position: absolute;
-  top: 10px;
-  right: 12px;
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid var(--lc-border);
-  color: var(--lc-text-secondary);
-  border-radius: 4px;
-  padding: 3px 8px;
-  font-size: 11px;
-  cursor: pointer;
-  transition: all 0.15s ease;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 4px !important;
+  background: #252525 !important;
+  border: 1px solid #383838 !important;
+  color: #9ca3af !important;
+  border-radius: 6px !important;
+  padding: 3px 8px !important;
+  font-size: 11px !important;
+  font-weight: 500 !important;
+  cursor: pointer !important;
+  transition: all 0.15s ease !important;
+  box-shadow: none !important;
 }
 
 .lc-copy-btn:hover {
-  background: var(--lc-accent-orange);
-  color: #1a1a1a;
-  border-color: var(--lc-accent-orange);
+  background: #333333 !important;
+  color: #ffffff !important;
+  border-color: #555555 !important;
+}
+
+/* Sidebar cards on Problem Statement Page */
+html.lc-theme #sidebar .lc-problem-sidebox {
+  background: #222222 !important;
+  border: 0 !important;
+  border-radius: 20px !important;
+  padding: 18px !important;
+  margin-bottom: 16px !important;
+  box-shadow: none !important;
+}
+
+/* Problem Tags in Sidebar */
+html.lc-theme .tag-box {
+  background: #1e1e1e !important;
+  border: 1px solid #333333 !important;
+  border-radius: 20px !important;
+  color: #9ca3af !important;
+  font-size: 11px !important;
+  padding: 4px 12px !important;
+  margin: 3px !important;
+  display: inline-block !important;
+  transition: all 0.15s ease !important;
+}
+
+html.lc-theme .tag-box:hover {
+  color: var(--lc-accent-orange) !important;
+  border-color: var(--lc-accent-orange) !important;
+}
+
+/* Practice Mode Tags Toggle Button */
+.lc-tags-toggle-btn {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  margin: 8px auto !important;
+  padding: 5px 12px !important;
+  font-size: 11px !important;
+  font-family: inherit !important;
+  background: var(--lc-accent-orange) !important;
+  color: #111111 !important;
+  font-weight: 600 !important;
+  border: none !important;
+  border-radius: 20px !important;
+  cursor: pointer !important;
+  box-shadow: none !important;
+}
+
+/* Sidebox Submit Button */
+.lc-sidebox-submit-btn,
+html.lc-theme #sidebar .lc-problem-sidebox input[type="submit"] {
+  background: var(--lc-accent-orange) !important;
+  color: #111111 !important;
+  border: none !important;
+  border-radius: 20px !important;
+  padding: 8px 24px !important;
+  font-size: 13px !important;
+  font-weight: 700 !important;
+  cursor: pointer !important;
+  width: 100% !important;
+  height: 38px !important;
+  margin-top: 10px !important;
+  transition: background 0.15s ease !important;
+  box-shadow: none !important;
+}
+
+.lc-sidebox-submit-btn:hover,
+html.lc-theme #sidebar .lc-problem-sidebox input[type="submit"]:hover {
+  background: var(--lc-accent-orange-hover) !important;
+  box-shadow: none !important;
+}
+
+/* Floating Problem Timer Widget */
+.lc-floating-timer {
+  position: fixed !important;
+  bottom: 24px !important;
+  right: 24px !important;
+  background: #202020 !important;
+  color: #f0f4f8 !important;
+  padding: 10px 14px !important;
+  border-radius: 12px !important;
+  box-shadow: none !important;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, monospace !important;
+  z-index: 99999 !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+  border: 1px solid #333333 !important;
+  font-size: 13px !important;
+}
+
+.lc-timer-title {
+  font-weight: 600 !important;
+  color: var(--lc-accent-orange) !important;
+  font-size: 11px !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.5px !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 4px !important;
+}
+
+.lc-timer-display {
+  font-size: 18px !important;
+  font-weight: bold !important;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, monospace !important;
+  min-width: 56px !important;
+  color: #eff1f6 !important;
+}
+
+.lc-timer-btn {
+  padding: 4px 10px !important;
+  border-radius: 6px !important;
+  border: none !important;
+  cursor: pointer !important;
+  font-size: 11px !important;
+  font-weight: 600 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 4px !important;
+  box-shadow: none !important;
+}
+
+.lc-timer-btn.play {
+  background: #2e7d32 !important;
+  color: white !important;
+}
+
+.lc-timer-btn.pause {
+  background: #e65100 !important;
+  color: white !important;
+}
+
+.lc-timer-btn.reset {
+  background: #455a64 !important;
+  color: white !important;
 }
 
 /* MathJax dark mode adjustment */
 html.lc-theme .MathJax,
 html.lc-theme .MathJax_Display,
 html.lc-theme .mjx-chtml {
-  color: #e2e8f0 !important;
+  color: #eff1f6 !important;
 }
+
+/* ==========================================================================
+   LeetCode Problem Split Workspace (Left: Question, Right: Editor + Testcases)
+   ========================================================================== */
+
+/* Full-width container overrides on problem page - Lock viewport to 100vh */
+html.lc-theme.lc-problem-page-active {
+  overflow: hidden !important;
+  height: 100vh !important;
+  max-height: 100vh !important;
+}
+
+html.lc-theme.lc-problem-page-active body {
+  padding: 0 0 0 60px !important;
+  margin: 0 !important;
+  background: #121212 !important;
+  overflow: hidden !important;
+  height: 100vh !important;
+  max-height: 100vh !important;
+  box-sizing: border-box !important;
+}
+
+/* Drag resizing cursor helpers */
+body.lc-resizing-v,
+body.lc-resizing-v * {
+  cursor: col-resize !important;
+  user-select: none !important;
+}
+
+body.lc-resizing-h,
+body.lc-resizing-h * {
+  cursor: row-resize !important;
+  user-select: none !important;
+}
+
+html.lc-theme.lc-problem-page-active #body {
+  max-width: 100% !important;
+  width: 100% !important;
+  padding: 8px 14px 16px 14px !important;
+  margin: 0 !important;
+  box-sizing: border-box !important;
+  height: 100vh !important;
+  max-height: 100vh !important;
+  overflow: hidden !important;
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+html.lc-theme.lc-problem-page-active #pageContent,
+html.lc-theme.lc-problem-page-active .content-with-sidebar {
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: none !important;
+  display: flex !important;
+  flex-direction: column !important;
+  flex: 1 1 auto !important;
+  min-height: 0 !important;
+  overflow: visible !important;
+  position: static !important;
+  top: 0 !important;
+}
+
+/* Hide native sidebar, footer, header and all elements below the three sections */
+html.lc-theme.lc-problem-page-active #sidebar,
+html.lc-theme.lc-problem-page-active #footer,
+html.lc-theme.lc-problem-page-active #header,
+html.lc-theme.lc-problem-page-active .lang-chooser {
+  display: none !important;
+}
+
+/* Hide any residual content/children in pageContent other than topbar and workspace */
+html.lc-theme.lc-problem-page-active #pageContent> :not(#lc-problem-topbar):not(#lc-problem-workspace) {
+  display: none !important;
+}
+
+/* Hide legacy problem index holder styling artifacts */
+html.lc-theme.lc-problem-page-active .problemindexholder {
+  display: contents !important;
+}
+
+/* Dedicated top bar holding acmsguru tab on left and profile pill on right */
+.lc-problem-topbar {
+  flex: 0 0 40px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  width: 100% !important;
+  height: 40px !important;
+  min-height: 40px !important;
+  max-height: 40px !important;
+  margin: 0 0 8px 0 !important;
+  padding: 0 2px !important;
+  box-sizing: border-box !important;
+  position: relative !important;
+  z-index: 100 !important;
+  overflow: visible !important;
+}
+
+.lc-problem-topbar-left {
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  overflow: visible !important;
+}
+
+.lc-problem-topbar-right {
+  display: flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+  overflow: visible !important;
+}
+
+/* Second level menu inside topbar */
+.lc-problem-topbar .second-level-menu,
+.lc-problem-topbar .lc-second-level-menu,
+.lc-problem-topbar .roundbox:has(.second-level-menu-list) {
+  margin: 0 !important;
+  padding: 0 !important;
+  position: static !important;
+  top: 0 !important;
+  display: flex !important;
+  align-items: center !important;
+  height: auto !important;
+  min-height: 0 !important;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  overflow: visible !important;
+}
+
+/* Profile pill inside topbar */
+.lc-problem-topbar .lc-floating-auth,
+.lc-problem-topbar #lc-floating-auth {
+  position: static !important;
+  top: auto !important;
+  right: auto !important;
+  margin: 0 !important;
+  z-index: auto !important;
+}
+
+/* Joined Resizable Three Sections Workspace - Locked strictly to viewport with bottom margin */
+.lc-problem-workspace {
+  width: 100% !important;
+  height: calc(100vh - 90px) !important;
+  max-height: calc(100vh - 90px) !important;
+  min-height: 400px !important;
+  margin: 0 0 16px 0 !important;
+  display: flex !important;
+  flex-direction: row !important;
+  gap: 0 !important;
+  /* Seamlessly joined */
+  overflow: hidden !important;
+  border: 1px solid #333333 !important;
+  border-radius: 10px !important;
+  background: #141414 !important;
+  box-sizing: border-box !important;
+  position: relative !important;
+  z-index: 1 !important;
+}
+
+/* Vertical Resizer between Question and Editor */
+.lc-resizer-v {
+  flex: 0 0 6px !important;
+  width: 6px !important;
+  height: 100% !important;
+  background: #1c1c1c !important;
+  border-left: 1px solid #282828 !important;
+  border-right: 1px solid #282828 !important;
+  cursor: col-resize !important;
+  position: relative !important;
+  z-index: 10 !important;
+  transition: background 0.15s ease !important;
+}
+
+.lc-resizer-v:hover,
+.lc-resizer-v.active {
+  background: var(--lc-accent-orange) !important;
+}
+
+/* Horizontal Resizer between Code Editor and Testcases */
+.lc-resizer-h {
+  flex: 0 0 6px !important;
+  height: 6px !important;
+  width: 100% !important;
+  background: #1c1c1c !important;
+  border-top: 1px solid #282828 !important;
+  border-bottom: 1px solid #282828 !important;
+  cursor: row-resize !important;
+  position: relative !important;
+  z-index: 10 !important;
+  transition: background 0.15s ease !important;
+}
+
+.lc-resizer-h:hover,
+.lc-resizer-h.active {
+  background: var(--lc-accent-orange) !important;
+}
+
+/* Left Pane (Question Description, Tags, Submissions) - Joined */
+.lc-workspace-left {
+  flex: 0 0 auto !important;
+  height: 100% !important;
+  background: #1e1e1e !important;
+  border: none !important;
+  border-radius: 0 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  overflow: hidden !important;
+  box-sizing: border-box !important;
+  min-width: 220px !important;
+}
+
+/* Right Workspace Pane (Editor + Testcases) - Joined */
+.lc-workspace-right {
+  flex: 1 1 0% !important;
+  height: 100% !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 0 !important;
+  overflow: hidden !important;
+  box-sizing: border-box !important;
+  min-width: 240px !important;
+}
+
+/* Part 1: Code Editor Card - Joined */
+.lc-editor-card {
+  flex: 0 0 auto !important;
+  background: #1e1e1e !important;
+  border: none !important;
+  border-radius: 0 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  overflow: hidden !important;
+  box-sizing: border-box !important;
+  min-height: 100px !important;
+}
+
+/* Part 2: Test Cases & Console Card - Joined */
+.lc-testcase-card {
+  flex: 1 1 0% !important;
+  background: #1e1e1e !important;
+  border: none !important;
+  border-radius: 0 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  overflow: hidden !important;
+  box-sizing: border-box !important;
+  min-height: 100px !important;
+}
+
+.lc-left-tabs-bar {
+  display: flex !important;
+  align-items: center !important;
+  background: #252525 !important;
+  border-bottom: 1px solid #333333 !important;
+  padding: 0 8px !important;
+  height: 40px !important;
+  min-height: 40px !important;
+  gap: 6px !important;
+  box-sizing: border-box !important;
+}
+
+.lc-left-tab {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  padding: 5px 12px !important;
+  font-size: 12.5px !important;
+  font-weight: 500 !important;
+  color: #9ca3af !important;
+  background: transparent !important;
+  border: none !important;
+  border-radius: 6px !important;
+  cursor: pointer !important;
+  transition: all 0.15s ease !important;
+}
+
+.lc-left-tab:hover {
+  color: #f1f5f9 !important;
+  background: rgba(255, 255, 255, 0.05) !important;
+}
+
+.lc-left-tab.active {
+  color: #ffffff !important;
+  background: #333333 !important;
+  font-weight: 600 !important;
+}
+
+.lc-left-pane-content {
+  flex: 1 1 auto !important;
+  overflow-y: auto !important;
+  padding: 24px 28px !important;
+  box-sizing: border-box !important;
+  color: #d1d5db !important;
+}
+
+/* Inside Left Pane: Reset problem-statement container styles to merge seamlessly */
+.lc-workspace-left .problem-statement {
+  background: transparent !important;
+  border: none !important;
+  border-radius: 0 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  box-shadow: none !important;
+  font-size: 14.5px !important;
+  line-height: 1.7 !important;
+}
+
+/* Editorial & Tags Tab Panel */
+#lc-tags-panel .lc-tags-card-item {
+  background: #252525 !important;
+  border: 1px solid #333333 !important;
+  border-radius: 10px !important;
+  padding: 14px 18px !important;
+  margin-bottom: 14px !important;
+  box-shadow: none !important;
+}
+
+#lc-tags-panel .caption.titled,
+#lc-tags-panel .caption {
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  color: #eff1f6 !important;
+  border-bottom: 1px solid #333333 !important;
+  padding-bottom: 6px !important;
+  margin-bottom: 10px !important;
+}
+
+/* Submissions Tab Panel */
+.lc-subs-container {
+  padding: 8px 0 !important;
+}
+
+.lc-subs-header h3 {
+  font-size: 18px !important;
+  font-weight: 700 !important;
+  color: #ffffff !important;
+  margin: 0 0 6px 0 !important;
+}
+
+.lc-subs-header p {
+  color: #9ca3af !important;
+  font-size: 13px !important;
+  margin: 0 0 20px 0 !important;
+}
+
+.lc-subs-actions-grid {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr !important;
+  gap: 12px !important;
+}
+
+.lc-subs-card {
+  display: block !important;
+  background: #252525 !important;
+  border: 1px solid #383838 !important;
+  border-radius: 10px !important;
+  padding: 16px !important;
+  text-decoration: none !important;
+  transition: all 0.15s ease !important;
+}
+
+.lc-subs-card:hover {
+  background: #2b2b2b !important;
+  border-color: var(--lc-accent-orange) !important;
+}
+
+.lc-subs-card-title {
+  color: #ffffff !important;
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  margin-bottom: 6px !important;
+}
+
+.lc-subs-card-desc {
+  color: #9ca3af !important;
+  font-size: 12px !important;
+  line-height: 1.5 !important;
+}
+
+/* Right Workspace Pane (Editor + Testcases) */
+.lc-workspace-right {
+  flex: 1 1 50% !important;
+  width: 50% !important;
+  min-width: 360px !important;
+  height: 100% !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 12px !important;
+  overflow: hidden !important;
+  box-sizing: border-box !important;
+}
+
+/* Part 1: Code Editor Card */
+.lc-editor-card {
+  flex: 1 1 58% !important;
+  min-height: 240px !important;
+  background: #1e1e1e !important;
+  border: 1px solid #333333 !important;
+  border-radius: 12px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  overflow: hidden !important;
+  box-sizing: border-box !important;
+}
+
+.lc-editor-header {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  background: #252525 !important;
+  border-bottom: 1px solid #333333 !important;
+  padding: 0 12px !important;
+  height: 40px !important;
+  min-height: 40px !important;
+  box-sizing: border-box !important;
+}
+
+.lc-editor-header-left {
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+}
+
+.lc-lang-select {
+  background: #181818 !important;
+  color: #eff1f6 !important;
+  border: 1px solid #3a3a3a !important;
+  border-radius: 6px !important;
+  padding: 4px 10px !important;
+  font-size: 12px !important;
+  font-weight: 500 !important;
+  cursor: pointer !important;
+  outline: none !important;
+}
+
+.lc-lang-select:focus {
+  border-color: var(--lc-accent-orange) !important;
+}
+
+.lc-editor-header-right {
+  display: flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+}
+
+.lc-editor-btn {
+  background: #2c2c2c !important;
+  border: 1px solid #3d3d3d !important;
+  color: #9ca3af !important;
+  border-radius: 6px !important;
+  padding: 5px !important;
+  cursor: pointer !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  transition: all 0.15s ease !important;
+}
+
+.lc-editor-btn:hover {
+  background: #383838 !important;
+  color: #ffffff !important;
+  border-color: #555555 !important;
+}
+
+.lc-editor-body {
+  flex: 1 1 auto !important;
+  display: flex !important;
+  position: relative !important;
+  background: #161616 !important;
+  overflow: hidden !important;
+}
+
+.lc-editor-gutter {
+  width: 44px !important;
+  min-width: 44px !important;
+  background: #1c1c1c !important;
+  border-right: 1px solid #282828 !important;
+  color: #64748b !important;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace !important;
+  font-size: 13px !important;
+  line-height: 20px !important;
+  padding: 12px 6px 12px 0 !important;
+  text-align: right !important;
+  user-select: none !important;
+  overflow: hidden !important;
+  white-space: pre !important;
+  box-sizing: border-box !important;
+}
+
+.lc-editor-textarea {
+  flex: 1 1 auto !important;
+  background: transparent !important;
+  border: none !important;
+  outline: none !important;
+  color: #f1f5f9 !important;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace !important;
+  font-size: 13px !important;
+  line-height: 20px !important;
+  padding: 12px !important;
+  resize: none !important;
+  white-space: pre !important;
+  overflow: auto !important;
+  tab-size: 4 !important;
+  -moz-tab-size: 4 !important;
+  box-sizing: border-box !important;
+}
+
+/* Part 2: Test Cases & Console Card */
+.lc-testcase-card {
+  flex: 1 1 42% !important;
+  min-height: 200px !important;
+  background: #1e1e1e !important;
+  border: 1px solid #333333 !important;
+  border-radius: 12px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  overflow: hidden !important;
+  box-sizing: border-box !important;
+}
+
+.lc-testcase-header {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  background: #252525 !important;
+  border-bottom: 1px solid #333333 !important;
+  padding: 0 10px !important;
+  height: 38px !important;
+  min-height: 38px !important;
+  box-sizing: border-box !important;
+}
+
+.lc-testcase-tabs {
+  display: flex !important;
+  align-items: center !important;
+  gap: 4px !important;
+}
+
+.lc-testcase-tab {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 5px !important;
+  padding: 4px 10px !important;
+  font-size: 12px !important;
+  font-weight: 500 !important;
+  color: #9ca3af !important;
+  background: transparent !important;
+  border: none !important;
+  border-radius: 6px !important;
+  cursor: pointer !important;
+  transition: all 0.15s ease !important;
+}
+
+.lc-testcase-tab:hover {
+  color: #eff1f6 !important;
+}
+
+.lc-testcase-tab.active {
+  color: #ffffff !important;
+  background: #333333 !important;
+  font-weight: 600 !important;
+}
+
+.lc-case-pills {
+  display: flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+}
+
+.lc-case-pill {
+  background: #2c2c2c !important;
+  border: 1px solid #3f3f3f !important;
+  color: #9ca3af !important;
+  border-radius: 14px !important;
+  padding: 3px 10px !important;
+  font-size: 11px !important;
+  cursor: pointer !important;
+  transition: all 0.15s ease !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.lc-case-pill:hover {
+  color: #ffffff !important;
+  border-color: #555555 !important;
+}
+
+.lc-case-pill.active {
+  background: #3f3f3f !important;
+  color: #ffffff !important;
+  border-color: #666666 !important;
+  font-weight: 600 !important;
+}
+
+.lc-case-pill.add {
+  padding: 3px 6px !important;
+}
+
+.lc-testcase-body {
+  flex: 1 1 auto !important;
+  overflow-y: auto !important;
+  padding: 12px 14px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  box-sizing: border-box !important;
+}
+
+.lc-case-view {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+}
+
+.lc-test-io-row {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 4px !important;
+}
+
+.lc-test-io-label {
+  font-size: 11px !important;
+  font-weight: 600 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.5px !important;
+  color: #9ca3af !important;
+}
+
+.lc-test-input-box {
+  background: #161616 !important;
+  border: 1px solid #333333 !important;
+  border-radius: 8px !important;
+  padding: 8px 12px !important;
+  color: #f1f5f9 !important;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace !important;
+  font-size: 12.5px !important;
+  line-height: 1.5 !important;
+  resize: vertical !important;
+  min-height: 48px !important;
+  outline: none !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+.lc-test-input-box:focus {
+  border-color: #555555 !important;
+}
+
+.lc-test-output-box {
+  background: #161616 !important;
+  border: 1px solid #333333 !important;
+  border-radius: 8px !important;
+  padding: 8px 12px !important;
+  color: #10b981 !important;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace !important;
+  font-size: 12.5px !important;
+  line-height: 1.5 !important;
+  margin: 0 !important;
+  min-height: 38px !important;
+  white-space: pre !important;
+  overflow-x: auto !important;
+  box-sizing: border-box !important;
+}
+
+/* Result View */
+.lc-result-placeholder {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 24px 12px !important;
+  text-align: center !important;
+}
+
+.lc-result-chip {
+  background: #292929 !important;
+  border: 1px solid #3d3d3d !important;
+  color: #9ca3af !important;
+  border-radius: 20px !important;
+  padding: 4px 12px !important;
+  font-size: 11.5px !important;
+  font-weight: 500 !important;
+  margin-bottom: 8px !important;
+}
+
+.lc-result-hint {
+  color: #6b7280 !important;
+  font-size: 12px !important;
+  margin: 0 !important;
+}
+
+.lc-result-content {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 8px !important;
+}
+
+.lc-run-status-chip {
+  display: inline-block !important;
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  border-radius: 6px !important;
+  padding: 4px 10px !important;
+  width: fit-content !important;
+}
+
+.lc-run-status-chip.success {
+  color: #00b8a3 !important;
+  background: rgba(0, 184, 163, 0.15) !important;
+}
+
+.lc-run-status-chip.running {
+  color: #ffa116 !important;
+  background: rgba(255, 161, 22, 0.15) !important;
+}
+
+.lc-run-stat {
+  font-size: 12px !important;
+  color: #9ca3af !important;
+}
+
+.lc-run-block {
+  margin-top: 4px !important;
+}
+
+.lc-run-block-label {
+  font-size: 11px !important;
+  font-weight: 600 !important;
+  text-transform: uppercase !important;
+  color: #9ca3af !important;
+  margin-bottom: 4px !important;
+}
+
+.lc-run-pre {
+  background: #161616 !important;
+  border: 1px solid #333333 !important;
+  border-radius: 6px !important;
+  padding: 6px 10px !important;
+  color: #f1f5f9 !important;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace !important;
+  font-size: 12px !important;
+  margin: 0 !important;
+  white-space: pre !important;
+}
+
+/* Testcase Bottom Action Bar */
+.lc-testcase-actions {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  background: #252525 !important;
+  border-top: 1px solid #333333 !important;
+  padding: 8px 14px !important;
+  height: 48px !important;
+  min-height: 48px !important;
+  box-sizing: border-box !important;
+}
+
+.lc-console-badge {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 5px !important;
+  color: #9ca3af !important;
+  font-size: 12px !important;
+  font-weight: 500 !important;
+}
+
+.lc-action-right {
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+}
+
+.lc-btn {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 6px !important;
+  border-radius: 8px !important;
+  font-size: 12.5px !important;
+  font-weight: 600 !important;
+  cursor: pointer !important;
+  transition: all 0.15s ease !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+.lc-btn-run {
+  background: #333333 !important;
+  color: #eff1f6 !important;
+  border: 1px solid #444444 !important;
+  padding: 6px 14px !important;
+}
+
+.lc-btn-run:hover {
+  background: #3d3d3d !important;
+  border-color: #555555 !important;
+}
+
+.lc-workspace-submit-btn {
+  background: #00b8a3 !important;
+  color: #ffffff !important;
+  border: none !important;
+  padding: 6px 18px !important;
+}
+
+.lc-workspace-submit-btn:hover {
+  background: #009d8b !important;
+}
+
 
 /* Footer */
 html.lc-theme #footer {

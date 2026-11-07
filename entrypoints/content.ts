@@ -9,6 +9,7 @@ import { loadAllProblemTags, updateUnratedRowRatings } from '../src/state/proble
 import {
   isProblemsetPage,
   isContestRegistrationPage,
+  isProblemPage,
   isExtensionActivePage,
 } from '../src/utils/page';
 import { enhanceMainNavigation, enhanceSecondLevelMenu } from '../src/features/navigation/mainNav';
@@ -17,6 +18,11 @@ import { enhancePayAttentionContests } from '../src/features/contests/payAttenti
 import { enhanceContestRegistration } from '../src/features/contests/contestRegistration';
 import { enhanceSidebarFilters } from '../src/features/sidebar/sidebarFilters';
 import { enhanceProblemsetTable, isEnhancingTable } from '../src/features/problemset/tableEnhancer';
+import {
+  enhanceProblemPage,
+  manageProblemTags,
+  manageProblemTimer,
+} from '../src/features/problemPage/problemEnhancer';
 
 export default defineContentScript({
   matches: ['*://*.codeforces.com/*'],
@@ -47,6 +53,10 @@ export default defineContentScript({
       if (isContestRegistrationPage()) {
         enhanceContestRegistration();
       }
+
+      if (isProblemPage()) {
+        enhanceProblemPage();
+      }
     }
 
     // Initialize extension settings & sync with storage
@@ -62,8 +72,16 @@ export default defineContentScript({
           if (auth) auth.style.display = 'none';
         }
       },
-      onHideTagsChanged: () => {},
-      onShowTimerChanged: () => {},
+      onHideTagsChanged: (hide: boolean) => {
+        if (isProblemPage()) {
+          manageProblemTags(hide);
+        }
+      },
+      onShowTimerChanged: (show: boolean) => {
+        if (isProblemPage()) {
+          manageProblemTimer(show);
+        }
+      },
     });
 
     if (document.readyState === 'loading') {
@@ -78,8 +96,8 @@ export default defineContentScript({
     setTimeout(runDomEnhancements, 300);
     setTimeout(runDomEnhancements, 1000);
 
-    // Warm up problem metadata cache in background only if on problemset
-    if (isProblemsetPage()) {
+    // Warm up problem metadata cache in background
+    if (isProblemsetPage() || isProblemPage()) {
       setTimeout(() => {
         loadAllProblemTags().then(updateUnratedRowRatings).catch(() => {});
       }, 1500);
@@ -114,6 +132,10 @@ export default defineContentScript({
 
         if (isContestRegistrationPage()) {
           enhanceContestRegistration();
+        }
+
+        if (isProblemPage()) {
+          enhanceProblemPage();
         }
       }, 60);
     });

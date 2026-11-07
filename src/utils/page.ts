@@ -29,7 +29,7 @@ export const isContestRegistrationPage = (): boolean => {
 };
 
 export const isExtensionActivePage = (): boolean => {
-  return isProblemsetPage() || isContestRegistrationPage();
+  return isProblemsetPage() || isContestRegistrationPage() || isProblemPage();
 };
 
 
