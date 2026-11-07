@@ -1,88 +1,117 @@
-.lc-popup {
-  width: 320px;
-  padding: 16px;
-  background: #1a1a1a;
-  color: #eff1f6;
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: #181818;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  border-radius: 20px;
+  overflow: hidden;
 }
 
-.lc-header {
+.lc-popup {
+  width: 280px;
+  padding: 18px;
+  background: #181818;
+  color: #eff1f6;
+  box-sizing: border-box;
+  border-radius: 20px;
+  border: 1px solid #333333;
+  overflow: hidden;
+}
+
+/* Header */
+.lc-popup-header {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid #2d2d2d;
+  justify-content: space-between;
+  margin-bottom: 16px;
   padding-bottom: 12px;
-  margin-bottom: 14px;
+  border-bottom: 1px solid #282828;
 }
 
 .lc-brand {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
 }
 
-.lc-icon {
-  font-size: 20px;
+.lc-logo-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: rgba(255, 161, 22, 0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
 }
 
 .lc-title {
   font-size: 15px;
   font-weight: 700;
   margin: 0;
-  color: #ffa116;
+  color: #eff1f6;
   letter-spacing: -0.2px;
 }
 
 .lc-subtitle {
-  font-size: 10px;
+  font-size: 11px;
   color: #909090;
+  display: block;
 }
 
-.lc-pill {
-  font-size: 10px;
-  font-weight: 600;
-  background: rgba(255, 161, 22, 0.15);
-  color: #ffa116;
-  padding: 2px 7px;
-  border-radius: 4px;
-  border: 1px solid rgba(255, 161, 22, 0.3);
+.lc-status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #555555;
+  transition: all 0.2s ease;
 }
 
-.lc-card {
-  background: #262626;
-  border: 1px solid #383838;
-  border-radius: 8px;
-  padding: 12px;
-  margin-bottom: 12px;
+.lc-status-dot.active {
+  background: #00b8a3;
+  box-shadow: 0 0 8px rgba(0, 184, 163, 0.5);
 }
 
-.theme-hero-card {
+/* Toggle Card */
+.lc-toggle-card {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  background: linear-gradient(135deg, #2a2a2a 0%, #222222 100%);
-  border: 1px solid #444;
+  justify-content: space-between;
+  background: #222222;
+  border: 1px solid #333333;
+  border-radius: 12px;
+  padding: 14px 16px;
+  margin-bottom: 14px;
+  box-sizing: border-box;
+  box-shadow: none;
 }
 
-.theme-hero-title {
+.lc-toggle-info {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.lc-toggle-title {
   font-size: 13px;
   font-weight: 600;
-  color: #ffffff;
+  color: #eff1f6;
 }
 
-.theme-hero-desc {
-  font-size: 10px;
-  color: #ffa116;
-  margin-top: 2px;
+.lc-toggle-desc {
+  font-size: 11px;
+  color: #9ca3af;
 }
 
-/* Custom Switch */
+/* Switch */
 .lc-switch {
   position: relative;
   display: inline-block;
-  width: 40px;
-  height: 22px;
+  width: 42px;
+  height: 24px;
+  flex-shrink: 0;
 }
 
 .lc-switch input {
@@ -98,19 +127,21 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: #3f3f46;
-  transition: 0.3s;
+  background-color: #383838;
+  transition: 0.2s;
+  border-radius: 24px;
 }
 
 .slider:before {
   position: absolute;
   content: "";
-  height: 16px;
-  width: 16px;
+  height: 18px;
+  width: 18px;
   left: 3px;
   bottom: 3px;
-  background-color: white;
-  transition: 0.3s;
+  background-color: #ffffff;
+  transition: 0.2s;
+  border-radius: 50%;
 }
 
 input:checked + .slider {
@@ -119,155 +150,49 @@ input:checked + .slider {
 
 input:checked + .slider:before {
   transform: translateX(18px);
+  background-color: #111111;
 }
 
-.slider.round {
-  border-radius: 22px;
-}
-
-.slider.round:before {
-  border-radius: 50%;
-}
-
-.lc-card-header {
-  font-size: 11px;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  color: #909090;
-  margin-bottom: 10px;
-}
-
-.handle-form {
-  display: flex;
-  gap: 8px;
-}
-
-.lc-input {
-  flex: 1;
-  background: #1c1c1c;
-  border: 1px solid #3f3f46;
-  color: #eff1f6;
-  padding: 6px 10px;
-  border-radius: 6px;
-  font-size: 12px;
-  outline: none;
-}
-
-.lc-input:focus {
-  border-color: #ffa116;
-}
-
-.lc-btn {
-  border: none;
-  border-radius: 6px;
-  font-size: 12px;
-  font-weight: 600;
-  padding: 6px 12px;
-  cursor: pointer;
-  transition: opacity 0.2s;
-}
-
-.lc-btn.primary {
-  background: #ffa116;
-  color: #1a1a1a;
-}
-
-.lc-btn:hover {
-  opacity: 0.9;
-}
-
-.lc-error {
-  color: #ff375f;
-  font-size: 11px;
-  margin-top: 8px;
-}
-
-.user-profile {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin-top: 10px;
-  padding-top: 10px;
-  border-top: 1px solid #333;
-}
-
-.user-avatar {
-  width: 42px;
-  height: 42px;
-  border-radius: 50%;
-  border: 2px solid #ffa116;
-  object-fit: cover;
-}
-
-.user-details {
+/* Action Buttons */
+.lc-actions-group {
   display: flex;
   flex-direction: column;
-}
-
-.user-handle {
-  font-weight: 700;
-  font-size: 14px;
-  text-decoration: none;
-}
-
-.user-rank {
-  font-size: 10px;
-  font-weight: 600;
-  margin-top: 1px;
-}
-
-.user-ratings {
-  display: flex;
   gap: 8px;
-  font-size: 11px;
-  color: #909090;
-  margin-top: 3px;
 }
 
-.user-ratings strong {
-  color: #eff1f6;
-}
-
-.toggle-row {
+.lc-action-btn {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  margin-bottom: 10px;
-  cursor: pointer;
-}
-
-.toggle-row:last-child {
-  margin-bottom: 0;
-}
-
-.toggle-label {
-  font-size: 12px;
-  font-weight: 500;
-  color: #eff1f6;
-}
-
-.toggle-sub {
-  font-size: 10px;
-  color: #909090;
-  margin-top: 2px;
-}
-
-.lc-footer {
-  display: flex;
   justify-content: center;
-  align-items: center;
   gap: 8px;
-  font-size: 11px;
-  color: #909090;
-  padding-top: 4px;
-}
-
-.lc-footer a {
-  color: #ffa116;
+  height: 38px;
+  background: #222222;
+  border: 1px solid #333333;
+  border-radius: 10px;
+  color: #eff1f6;
+  font-size: 12px;
+  font-weight: 600;
   text-decoration: none;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  box-sizing: border-box;
+  box-shadow: none;
 }
 
-.lc-footer a:hover {
-  text-decoration: underline;
+.lc-action-btn:hover {
+  background: #2a2a2a;
+  border-color: #444444;
+  color: #ffffff;
+}
+
+.coffee-btn:hover {
+  border-color: rgba(255, 161, 22, 0.4);
+}
+
+.star-btn:hover {
+  border-color: rgba(255, 161, 22, 0.4);
+}
+
+.btn-icon {
+  flex-shrink: 0;
 }

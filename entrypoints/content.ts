@@ -6,18 +6,17 @@ import {
   showTimerEnabled,
 } from '../src/state/settingsState';
 import { loadAllProblemTags, updateUnratedRowRatings } from '../src/state/problemCache';
-import { isProblemsetPage, isProblemPage, isContestRegistrationPage } from '../src/utils/page';
+import {
+  isProblemsetPage,
+  isContestRegistrationPage,
+  isExtensionActivePage,
+} from '../src/utils/page';
 import { enhanceMainNavigation, enhanceSecondLevelMenu } from '../src/features/navigation/mainNav';
 import { enhanceFloatingAuth } from '../src/features/auth/floatingAuth';
 import { enhancePayAttentionContests } from '../src/features/contests/payAttention';
 import { enhanceContestRegistration } from '../src/features/contests/contestRegistration';
 import { enhanceSidebarFilters } from '../src/features/sidebar/sidebarFilters';
 import { enhanceProblemsetTable, isEnhancingTable } from '../src/features/problemset/tableEnhancer';
-import {
-  enhanceProblemPage,
-  manageProblemTags,
-  manageProblemTimer,
-} from '../src/features/problemPage/problemEnhancer';
 
 export default defineContentScript({
   matches: ['*://*.codeforces.com/*'],
@@ -25,19 +24,24 @@ export default defineContentScript({
 
   main() {
     function runDomEnhancements() {
-      if (!leetcodeThemeEnabled) return;
+      if (!leetcodeThemeEnabled || !isExtensionActivePage()) {
+        document.documentElement.classList.remove('lc-theme');
+        const sidebar = document.getElementById('lc-sidebar-nav');
+        const auth = document.getElementById('lc-floating-auth');
+        if (sidebar) sidebar.style.display = 'none';
+        if (auth) auth.style.display = 'none';
+        return;
+      }
+
+      document.documentElement.classList.add('lc-theme');
       enhanceFloatingAuth();
       enhanceMainNavigation();
       enhanceSecondLevelMenu();
-      enhancePayAttentionContests();
 
       if (isProblemsetPage()) {
+        enhancePayAttentionContests();
         enhanceSidebarFilters();
         enhanceProblemsetTable();
-      }
-
-      if (isProblemPage()) {
-        enhanceProblemPage();
       }
 
       if (isContestRegistrationPage()) {
@@ -48,16 +52,18 @@ export default defineContentScript({
     // Initialize extension settings & sync with storage
     initSettingsAndFavorites({
       onThemeChanged: () => {
-        if (leetcodeThemeEnabled) {
+        if (leetcodeThemeEnabled && isExtensionActivePage()) {
           runDomEnhancements();
+        } else {
+          document.documentElement.classList.remove('lc-theme');
+          const sidebar = document.getElementById('lc-sidebar-nav');
+          const auth = document.getElementById('lc-floating-auth');
+          if (sidebar) sidebar.style.display = 'none';
+          if (auth) auth.style.display = 'none';
         }
       },
-      onHideTagsChanged: (hide: boolean) => {
-        manageProblemTags(hide);
-      },
-      onShowTimerChanged: (show: boolean) => {
-        manageProblemTimer(show);
-      },
+      onHideTagsChanged: () => {},
+      onShowTimerChanged: () => {},
     });
 
     if (document.readyState === 'loading') {
@@ -72,33 +78,38 @@ export default defineContentScript({
     setTimeout(runDomEnhancements, 300);
     setTimeout(runDomEnhancements, 1000);
 
-    // Warm up problem metadata cache in background without blocking UI
-    setTimeout(() => {
-      loadAllProblemTags().then(updateUnratedRowRatings).catch(() => {});
-    }, 1500);
+    // Warm up problem metadata cache in background only if on problemset
+    if (isProblemsetPage()) {
+      setTimeout(() => {
+        loadAllProblemTags().then(updateUnratedRowRatings).catch(() => {});
+      }, 1500);
+    }
 
     // Observe dynamic DOM replacements & late loading of auth/header elements with debouncing
     let observerDebounce: number | null = null;
     const observer = new MutationObserver(() => {
-      if (!leetcodeThemeEnabled) return;
+      if (!leetcodeThemeEnabled || !isExtensionActivePage()) return;
       if (observerDebounce) clearTimeout(observerDebounce);
       observerDebounce = window.setTimeout(() => {
         observerDebounce = null;
         enhanceFloatingAuth();
         enhanceMainNavigation();
-        enhancePayAttentionContests();
 
-        const table = document.querySelector('table.problems') as HTMLTableElement | null;
-        if (
-          table &&
-          !isEnhancingTable &&
-          (table.querySelector('tr:not([data-lc-enhanced="true"]) td') || !table.querySelector('.lc-actions-header'))
-        ) {
-          enhanceProblemsetTable();
-        }
+        if (isProblemsetPage()) {
+          enhancePayAttentionContests();
 
-        if (document.getElementById('sidebar') || document.querySelector('.sidebox, .roundbox')) {
-          enhanceSidebarFilters();
+          const table = document.querySelector('table.problems') as HTMLTableElement | null;
+          if (
+            table &&
+            !isEnhancingTable &&
+            (table.querySelector('tr:not([data-lc-enhanced="true"]) td') || !table.querySelector('.lc-actions-header'))
+          ) {
+            enhanceProblemsetTable();
+          }
+
+          if (document.getElementById('sidebar') || document.querySelector('.sidebox, .roundbox')) {
+            enhanceSidebarFilters();
+          }
         }
 
         if (isContestRegistrationPage()) {

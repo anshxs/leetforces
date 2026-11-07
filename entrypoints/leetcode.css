@@ -1,5 +1,5 @@
 /* ==========================================================================
-   LeetCode Dark Theme for Codeforces (LeetBoost)
+   LeetCode Dark Theme for Codeforces (LeetForces)
    ========================================================================== */
 
 :root {
@@ -54,14 +54,18 @@ html.lc-theme .content-with-sidebar {
 }
 
 /* Links */
-html.lc-theme a:not(.rated-user):not([class*="user-"]):not(.lc-diff-text):not(.lc-problem-title):not(.lc-contest-title) {
-  color: var(--lc-text-primary);
+html.lc-theme a {
   text-decoration: none !important;
   transition: color 0.15s ease;
 }
 
-html.lc-theme a:not(.rated-user):not([class*="user-"]):not(.lc-diff-text):not(.lc-problem-title):not(.lc-contest-title):hover {
+html.lc-theme a:not(.rated-user):not([class*="user-"]):not(.lc-diff-text) {
+  color: var(--lc-text-primary);
+}
+
+html.lc-theme a:not(.rated-user):not([class*="user-"]):not(.lc-diff-text):hover {
   color: var(--lc-accent-orange) !important;
+  text-decoration: none !important;
 }
 
 /* ==========================================================================
@@ -108,8 +112,8 @@ html.lc-theme #body {
   left: 0 !important;
   bottom: 0 !important;
   width: 200px !important;
-  background: #181818 !important;
-  border-right: 1px solid var(--lc-border) !important;
+  background: #1a1a1a !important;
+  /* border-right: 1px solid var(--lc-border) !important; */
   z-index: 10000 !important;
   display: flex !important;
   flex-direction: column !important;
@@ -138,7 +142,7 @@ html.lc-theme #body {
   display: flex !important;
   align-items: center !important;
   padding: 14px 12px 12px 12px !important;
-  border-bottom: 1px solid var(--lc-border-subtle) !important;
+  /* border-bottom: 1px solid var(--lc-border-subtle) !important; */
   min-height: 52px !important;
   box-sizing: border-box !important;
   justify-content: flex-start !important;
@@ -245,7 +249,7 @@ html.lc-theme #body {
 /* Sidebar Footer (Collapse Toggle) */
 .lc-sidebar-footer {
   padding: 10px 8px !important;
-  border-top: 1px solid var(--lc-border-subtle) !important;
+  /* border-top: 1px solid var(--lc-border-subtle) !important; */
 }
 
 .lc-sidebar-toggle-btn {
@@ -1180,21 +1184,29 @@ html.lc-theme table.problems td.id a {
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace !important;
   font-size: 13px !important;
   font-weight: 600 !important;
+  text-decoration: none !important;
 }
 
 html.lc-theme table.problems td.id a:hover {
   color: var(--lc-accent-orange) !important;
+  text-decoration: none !important;
 }
 
+html.lc-theme table.problems td a,
+html.lc-theme table.problems .lc-problem-title,
 .lc-problem-title {
   color: #ffffff !important;
   font-size: 14px !important;
   font-weight: 500 !important;
+  text-decoration: none !important;
   transition: color 0.15s ease;
 }
 
+html.lc-theme table.problems td a:hover,
+html.lc-theme table.problems .lc-problem-title:hover,
 .lc-problem-title:hover {
   color: var(--lc-accent-orange) !important;
+  text-decoration: none !important;
 }
 
 /* Problemset Table Columns Layout */
@@ -1433,10 +1445,44 @@ html.lc-theme #sidebar .roundbox-lb,
 html.lc-theme #sidebar .roundbox-rb,
 html.lc-theme #sidebar .roundbox-top,
 html.lc-theme #sidebar .roundbox-bottom,
-html.lc-theme #sidebar .bottom-links,
 html.lc-theme #sidebar .top-links,
 html.lc-theme #sidebar .corner {
   display: none !important;
+}
+
+/* Sidebar Bottom Links (View all in Top Rated, Top Contributors, Streams & Detailed in Recent Actions) */
+html.lc-theme #sidebar .bottom-links {
+  display: flex !important;
+  justify-content: flex-end !important;
+  align-items: center !important;
+  /* margin-top: 10px !important; */
+  /* padding-top: 8px !important; */
+  border-top: 0px solid #282828 !important;
+  text-align: right !important;
+  background: transparent !important;
+}
+
+html.lc-theme #sidebar .bottom-links a {
+  color: #9ca3af !important;
+  font-size: 9px !important;
+  font-weight: 500 !important;
+  text-decoration: none !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 4px !important;
+  padding: 3px 10px !important;
+  border-radius: 12px !important;
+  background: #1a1a1a !important;
+  /* border: 1px solid #333333 !important; */
+  transition: all 0.15s ease !important;
+  box-shadow: none !important;
+}
+
+html.lc-theme #sidebar .bottom-links a:hover {
+  background: #333333 !important;
+  color: var(--lc-accent-orange) !important;
+  border-color: #444444 !important;
+  text-decoration: none !important;
 }
 
 html.lc-theme #sidebar .sidebox.bottom-bordered {
@@ -2489,11 +2535,18 @@ html.lc-theme #sidebar .recent-actions .format-humantime {
 }
 
 /* ==========================================================================
-   Pagination (LeetCode Style)
+   Pagination (LeetCode Style: Crisp 32px Square Buttons & Flex Container)
    ========================================================================== */
 
 html.lc-theme .pagination {
-  margin: 20px 0 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: flex-end !important;
+  gap: 6px !important;
+  margin: 24px 0 !important;
+  padding: 0 !important;
+  float: none !important;
+  clear: both !important;
 }
 
 html.lc-theme .pagination ul {
@@ -2501,39 +2554,112 @@ html.lc-theme .pagination ul {
   list-style: none !important;
   gap: 6px !important;
   padding: 0 !important;
+  margin: 0 !important;
   align-items: center !important;
 }
 
+/* Outer wrapper reset for spans containing links */
+html.lc-theme .pagination .page-index:has(a),
+html.lc-theme .pagination span:has(a) {
+  display: inline-flex !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  background: transparent !important;
+  border: none !important;
+  width: auto !important;
+  height: auto !important;
+}
+
+/* All pagination page buttons (Default State) */
+html.lc-theme .pagination .page-index a,
+html.lc-theme .pagination span > a,
 html.lc-theme .pagination li a,
-html.lc-theme .pagination li span.active,
-html.lc-theme .pagination span.active {
+html.lc-theme .pagination > a,
+html.lc-theme .pagination .page-index:not(:has(a)) {
   display: inline-flex !important;
   align-items: center !important;
   justify-content: center !important;
-  min-width: 25px !important;
-  height: 25px !important;
-  padding: 0 8px !important;
-  border-radius: 25px !important;
-  background: var(--lc-bg-card) !important;
-  border: 1px solid var(--lc-border) !important;
-  color: var(--lc-text-secondary) !important;
+  width: 32px !important;
+  min-width: 32px !important;
+  height: 32px !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  border-radius: 8px !important;
+  background: #222222 !important;
+  border: 1px solid #333333 !important;
+  color: #9ca3af !important;
   font-size: 13px !important;
   font-weight: 500 !important;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+  text-decoration: none !important;
+  box-sizing: border-box !important;
   transition: all 0.15s ease !important;
+  line-height: 1 !important;
 }
 
-html.lc-theme .pagination li a:hover {
-  background: var(--lc-bg-hover) !important;
+/* Hover state */
+html.lc-theme .pagination .page-index a:hover,
+html.lc-theme .pagination span > a:hover,
+html.lc-theme .pagination li a:hover,
+html.lc-theme .pagination > a:hover {
+  background: #2a2a2a !important;
+  border-color: #444444 !important;
   color: #ffffff !important;
-  border-color: #555 !important;
+  text-decoration: none !important;
 }
 
+/* Selected / Active Page Button (LeetCode Orange, Perfectly Sized 32x32) */
+html.lc-theme .pagination .page-index.active,
+html.lc-theme .pagination span.active,
+html.lc-theme .pagination a.active,
 html.lc-theme .pagination li span.active,
-html.lc-theme .pagination span.active {
+html.lc-theme .pagination .page-index.active a,
+html.lc-theme .pagination span.active a {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 32px !important;
+  min-width: 32px !important;
+  max-width: 32px !important;
+  height: 32px !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  border-radius: 8px !important;
   background: var(--lc-accent-orange) !important;
-  color: #1a1a1a !important;
+  border: 1px solid var(--lc-accent-orange) !important;
+  color: #111111 !important;
   font-weight: 700 !important;
-  border-color: var(--lc-accent-orange) !important;
+  font-size: 13px !important;
+  box-sizing: border-box !important;
+  line-height: 1 !important;
+  text-decoration: none !important;
+}
+
+/* Ensure nested a inside active span has clean transparent style */
+html.lc-theme .pagination .page-index.active a,
+html.lc-theme .pagination span.active a {
+  background: transparent !important;
+  border: none !important;
+  color: #111111 !important;
+  width: 100% !important;
+  height: 100% !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+/* Ellipsis Dots between pages */
+html.lc-theme .pagination span:not(.page-index):not(:has(a)) {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 24px !important;
+  height: 32px !important;
+  color: #6b7280 !important;
+  background: transparent !important;
+  border: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  font-size: 14px !important;
 }
 
 /* ==========================================================================

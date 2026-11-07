@@ -1,5 +1,6 @@
 import { Star } from 'lucide';
 import { renderLucide } from '../utils/icons';
+import { isExtensionActivePage } from '../utils/page';
 import type { ExtensionSettings } from '../types';
 
 export let leetcodeThemeEnabled = true;
@@ -28,7 +29,7 @@ export function updateFavoritesUI(): void {
 export function applyThemeState(): void {
   const sidebar = document.getElementById('lc-sidebar-nav');
   const auth = document.getElementById('lc-floating-auth');
-  if (leetcodeThemeEnabled) {
+  if (leetcodeThemeEnabled && isExtensionActivePage()) {
     document.documentElement.classList.add('lc-theme');
     if (sidebar) sidebar.style.display = 'flex';
     if (auth) auth.style.display = 'flex';

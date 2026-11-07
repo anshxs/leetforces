@@ -21,10 +21,10 @@ export function enhanceSidebarFilters(): void {
       return;
     }
 
-    // Remove legacy beveled corner artifacts
+    // Remove legacy beveled corner artifacts (keep .bottom-links content intact)
     box
       .querySelectorAll(
-        '.roundbox-lt, .roundbox-rt, .roundbox-lb, .roundbox-rb, .roundbox-top, .roundbox-bottom, .bottom-links, .top-links, .corner'
+        '.roundbox-lt, .roundbox-rt, .roundbox-lb, .roundbox-rb, .roundbox-top, .roundbox-bottom, .top-links, .corner, .bottom-links .lt, .bottom-links .rt, .bottom-links .lb, .bottom-links .rb'
       )
       .forEach((el) => el.remove());
 

@@ -4,11 +4,11 @@ import { defineConfig } from 'wxt';
 export default defineConfig({
   modules: ['@wxt-dev/module-react'],
   manifest: {
-    name: 'LeetBoost - LeetCode Theme for Codeforces',
+    name: 'LeetForces - LeetCode Theme for Codeforces',
     description: 'Transforms Codeforces into LeetCode Dark Theme with difficulty badges, status checkmarks, and CP practice tools.',
     permissions: ['storage'],
     action: {
-      default_title: 'LeetBoost',
+      default_title: 'LeetForces',
     },
     web_accessible_resources: [
       {
