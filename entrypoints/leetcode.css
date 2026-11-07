@@ -1,0 +1,2043 @@
+/* ==========================================================================
+   LeetCode Dark Theme for Codeforces (LeetBoost)
+   ========================================================================== */
+
+:root {
+  --lc-bg-main: #1a1a1a;
+  --lc-bg-card: #1a1a1a;
+  --lc-bg-card-alt: #272727;
+  --lc-bg-header: #202020;
+  --lc-bg-hover: #323232;
+  --lc-border: #383838;
+  --lc-border-subtle: #2d2d2d;
+
+  --lc-text-primary: #eff1f6;
+  --lc-text-secondary: #909090;
+  --lc-text-muted: #6b7280;
+
+  --lc-accent-orange: #ffa116;
+  --lc-accent-orange-hover: #ff8c00;
+
+  --lc-diff-easy: #00b8a3;
+  --lc-diff-easy-bg: rgba(0, 184, 163, 0.14);
+  --lc-diff-easy-border: rgba(0, 184, 163, 0.28);
+
+  --lc-diff-medium: #ffc01e;
+  --lc-diff-medium-bg: rgba(255, 192, 30, 0.14);
+  --lc-diff-medium-border: rgba(255, 192, 30, 0.28);
+
+  --lc-diff-hard: #ff375f;
+  --lc-diff-hard-bg: rgba(255, 55, 95, 0.14);
+  --lc-diff-hard-border: rgba(255, 55, 95, 0.28);
+
+  --lc-tag-bg: #333842;
+  --lc-tag-hover: #404654;
+}
+
+/* ==========================================================================
+   Base resets & Dark Canvas
+   ========================================================================== */
+
+html.lc-theme,
+html.lc-theme body {
+  background-color: var(--lc-bg-main) !important;
+  color: var(--lc-text-primary) !important;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important;
+  -webkit-font-smoothing: antialiased !important;
+}
+
+html.lc-theme #body,
+html.lc-theme #pageContent,
+html.lc-theme .content-with-sidebar {
+  background-color: var(--lc-bg-main) !important;
+  color: var(--lc-text-primary) !important;
+}
+
+/* Links */
+html.lc-theme a {
+  color: var(--lc-text-primary) !important;
+  text-decoration: none !important;
+  transition: color 0.15s ease;
+}
+
+html.lc-theme a:hover {
+  color: var(--lc-accent-orange) !important;
+}
+
+/* ==========================================================================
+   Codeforces Header -> Hidden Appbar & Left Sidebar Navigation
+   ========================================================================== */
+
+/* Completely remove top appbar / header bar */
+html.lc-theme #header {
+  display: none !important;
+}
+
+html.lc-theme .menu-box,
+html.lc-theme .main-menu-list,
+html.lc-theme .menu-list-container,
+html.lc-theme #main-menu {
+  display: none !important;
+}
+
+/* ==========================================================================
+   LeetCode Left Vertical Navigation Sidebar
+   ========================================================================== */
+
+html.lc-theme body {
+  padding-left: 200px !important;
+  box-sizing: border-box !important;
+  transition: padding-left 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+html.lc-theme.lc-sidebar-collapsed body {
+  padding-left: 60px !important;
+}
+
+html.lc-theme #body {
+  width: auto !important;
+  max-width: 1350px !important;
+  margin: 0 auto !important;
+  padding: 20px 16px 0 16px !important;
+  box-sizing: border-box !important;
+}
+
+.lc-sidebar-nav {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  bottom: 0 !important;
+  width: 200px !important;
+  background: #181818 !important;
+  border-right: 1px solid var(--lc-border) !important;
+  z-index: 10000 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  box-sizing: border-box !important;
+  transition: width 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  overflow-x: hidden !important;
+  overflow-y: auto !important;
+}
+
+.lc-sidebar-nav::-webkit-scrollbar {
+  width: 4px;
+}
+
+.lc-sidebar-nav::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 4px;
+}
+
+/* Collapsed State */
+.lc-sidebar-nav.collapsed {
+  width: 60px !important;
+}
+
+/* Header / Brand */
+.lc-sidebar-header {
+  display: flex !important;
+  align-items: center !important;
+  padding: 14px 12px 12px 12px !important;
+  border-bottom: 1px solid var(--lc-border-subtle) !important;
+  min-height: 52px !important;
+  box-sizing: border-box !important;
+  justify-content: flex-start !important;
+}
+
+.lc-sidebar-brand {
+  display: flex !important;
+  align-items: center !important;
+  text-decoration: none !important;
+  overflow: hidden !important;
+  max-width: 100% !important;
+}
+
+.lc-sidebar-logo-img {
+  max-width: 155px !important;
+  height: auto !important;
+  max-height: 24px !important;
+  object-fit: contain !important;
+  display: block !important;
+  transition: all 0.2s ease !important;
+}
+
+/* Collapsed Header / Brand */
+.lc-sidebar-nav.collapsed .lc-sidebar-header {
+  justify-content: center !important;
+  padding: 14px 6px 12px 6px !important;
+}
+
+.lc-sidebar-nav.collapsed .lc-sidebar-logo-img {
+  width: 28px !important;
+  height: 22px !important;
+  object-fit: cover !important;
+  object-position: left center !important;
+}
+
+/* Nav Items List */
+.lc-sidebar-nav-list {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 3px !important;
+  padding: 10px 8px !important;
+  flex: 1 !important;
+}
+
+.lc-sidebar-nav-item {
+  display: flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+  padding: 8px 12px !important;
+  border-radius: 8px !important;
+  color: var(--lc-text-secondary) !important;
+  font-size: 13px !important;
+  font-weight: 500 !important;
+  text-decoration: none !important;
+  transition: all 0.15s ease !important;
+  white-space: nowrap !important;
+  box-sizing: border-box !important;
+}
+
+.lc-sidebar-nav-icon {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  flex-shrink: 0 !important;
+  color: var(--lc-text-secondary) !important;
+  transition: color 0.15s ease !important;
+}
+
+.lc-sidebar-nav-label {
+  white-space: nowrap !important;
+  transition: opacity 0.15s ease !important;
+}
+
+.lc-sidebar-nav-item:hover {
+  background: rgba(255, 255, 255, 0.06) !important;
+  color: #ffffff !important;
+}
+
+.lc-sidebar-nav-item:hover .lc-sidebar-nav-icon {
+  color: #ffffff !important;
+}
+
+.lc-sidebar-nav-item.active {
+  background: rgba(255, 255, 255, 0.06) !important;
+  color: var(--lc-accent-orange) !important;
+  font-weight: 600 !important;
+}
+
+.lc-sidebar-nav-item.active .lc-sidebar-nav-icon {
+  color: var(--lc-accent-orange) !important;
+}
+
+/* Collapsed Nav Items */
+.lc-sidebar-nav.collapsed .lc-sidebar-nav-item {
+  justify-content: center !important;
+  padding: 10px 0 !important;
+  gap: 0 !important;
+}
+
+.lc-sidebar-nav.collapsed .lc-sidebar-nav-label {
+  display: none !important;
+}
+
+/* Sidebar Footer (Collapse Toggle) */
+.lc-sidebar-footer {
+  padding: 10px 8px !important;
+  border-top: 1px solid var(--lc-border-subtle) !important;
+}
+
+.lc-sidebar-toggle-btn {
+  display: flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+  width: 100% !important;
+  padding: 8px 12px !important;
+  border-radius: 8px !important;
+  background: transparent !important;
+  border: none !important;
+  color: var(--lc-text-secondary) !important;
+  font-size: 13px !important;
+  cursor: pointer !important;
+  transition: all 0.15s ease !important;
+  box-sizing: border-box !important;
+}
+
+.lc-sidebar-toggle-btn:hover {
+  background: rgba(255, 255, 255, 0.06) !important;
+  color: #ffffff !important;
+}
+
+.lc-sidebar-nav.collapsed .lc-sidebar-toggle-btn {
+  justify-content: center !important;
+  padding: 8px 0 !important;
+}
+
+.lc-sidebar-nav.collapsed .lc-sidebar-toggle-text {
+  display: none !important;
+}
+
+/* ==========================================================================
+   Floating Auth & User Status (Top Right)
+   ========================================================================== */
+
+.lc-floating-auth {
+  position: fixed !important;
+  top: 14px !important;
+  right: 24px !important;
+  z-index: 99999 !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+}
+
+/* Two Floating Buttons (Logged Out State: Enter & Register) */
+.lc-floating-btn {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 7px 16px !important;
+  border-radius: 9999px !important;
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  text-decoration: none !important;
+  transition: all 0.15s ease !important;
+  line-height: 1 !important;
+  /* box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35) !important; */
+}
+
+html.lc-theme .lc-floating-btn.lc-btn-enter {
+  background: rgba(36, 36, 36, 0.88) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  border: 1px solid var(--lc-border) !important;
+  color: var(--lc-text-primary) !important;
+}
+
+html.lc-theme .lc-floating-btn.lc-btn-enter:hover,
+html.lc-theme a.lc-btn-enter:hover {
+  background: rgba(50, 50, 50, 0.95) !important;
+  border-color: rgba(255, 255, 255, 0.25) !important;
+  color: #ffffff !important;
+}
+
+html.lc-theme .lc-floating-btn.lc-btn-register,
+html.lc-theme a.lc-btn-register {
+  background: var(--lc-accent-orange) !important;
+  border: 1px solid var(--lc-accent-orange) !important;
+  color: #000000 !important;
+}
+
+html.lc-theme .lc-floating-btn.lc-btn-register:hover,
+html.lc-theme a.lc-btn-register:hover {
+  background: var(--lc-accent-orange-hover) !important;
+  border-color: var(--lc-accent-orange-hover) !important;
+  color: #000000 !important;
+}
+
+/* Floating User Pill (Logged In State) */
+.lc-auth-user-pill {
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  background: rgba(28, 28, 28, 0.88) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  border: 1px solid var(--lc-border) !important;
+  border-radius: 9999px !important;
+  padding: 4px 6px 4px 6px !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35) !important;
+}
+
+.lc-auth-avatar-wrap {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 24px !important;
+  height: 24px !important;
+  min-width: 24px !important;
+  min-height: 24px !important;
+  border-radius: 50% !important;
+  overflow: hidden !important;
+  background: rgba(255, 255, 255, 0.08) !important;
+  color: var(--lc-text-secondary) !important;
+  text-decoration: none !important;
+  flex-shrink: 0 !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+}
+
+.lc-auth-user-avatar {
+  width: 100% !important;
+  height: 100% !important;
+  border-radius: 50% !important;
+  object-fit: cover !important;
+  display: block !important;
+}
+
+.lc-auth-user-icon {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  color: var(--lc-text-secondary) !important;
+}
+
+.lc-auth-handle {
+  font-size: 13px !important;
+  font-weight: 700 !important;
+  color: #eff1f6 !important;
+  text-decoration: none !important;
+  letter-spacing: 0.2px !important;
+}
+
+.lc-auth-handle:hover {
+  text-decoration: underline !important;
+}
+
+.lc-auth-rating-badge {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace !important;
+  font-size: 12px !important;
+  font-weight: 700 !important;
+  background: rgba(255, 255, 255, 0.08) !important;
+  padding: 2px 8px !important;
+  border-radius: 9999px !important;
+}
+
+.lc-auth-rating-badge:empty {
+  display: none !important;
+}
+
+.lc-auth-logout-btn {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 28px !important;
+  height: 28px !important;
+  border-radius: 50% !important;
+  background: transparent !important;
+  color: var(--lc-text-secondary) !important;
+  text-decoration: none !important;
+  transition: all 0.15s ease !important;
+}
+
+.lc-auth-logout-btn:hover {
+  background: rgba(255, 55, 95, 0.15) !important;
+  color: #ff375f !important;
+}
+
+/* Remove old beveled corners throughout */
+html.lc-theme .roundbox-lt,
+html.lc-theme .roundbox-rt,
+html.lc-theme .roundbox-lb,
+html.lc-theme .roundbox-rb,
+html.lc-theme .roundbox-top,
+html.lc-theme .roundbox-bottom,
+html.lc-theme .bottom-links .lt,
+html.lc-theme .bottom-links .rt,
+html.lc-theme .bottom-links .lb,
+html.lc-theme .bottom-links .rb {
+  display: none !important;
+}
+
+/* Cards & Roundboxes */
+html.lc-theme .roundbox {
+  background: var(--lc-bg-card) !important;
+  border: 1px solid var(--lc-border) !important;
+  border-radius: 10px !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2) !important;
+  padding: 14px !important;
+  margin-bottom: 16px !important;
+}
+
+html.lc-theme .caption.titled,
+html.lc-theme .caption {
+  color: var(--lc-text-primary) !important;
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  border-bottom: 1px solid var(--lc-border-subtle) !important;
+  padding-bottom: 8px !important;
+  margin-bottom: 12px !important;
+  letter-spacing: 0.2px;
+}
+
+/* ==========================================================================
+   Second-Level Menu (Main, acmsguru, etc.) -> Modern LeetCode Segmented Tabs
+   ========================================================================== */
+
+html.lc-theme .second-level-menu,
+html.lc-theme .second-level-menu.roundbox,
+html.lc-theme .roundbox:has(.second-level-menu-list),
+html.lc-theme .lc-second-level-menu {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+  padding: 0 !important;
+  margin: 0 0 16px 0 !important;
+  display: flex !important;
+  align-items: center !important;
+}
+
+html.lc-theme .second-level-menu div {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+html.lc-theme .second-level-menu-list {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 0px !important;
+  background: #222222 !important;
+  padding: 3px !important;
+  border-radius: 15px !important;
+  /* border: 1px solid var(--lc-border) !important; */
+  list-style: none !important;
+  margin: 0 !important;
+  height: auto !important;
+  min-height: 0 !important;
+  position: static !important;
+  box-sizing: border-box !important;
+  line-height: normal !important;
+  width: auto !important;
+  max-width: max-content !important;
+}
+
+/* Hide LavaLamp artifacts */
+html.lc-theme .second-level-menu-list li.back,
+html.lc-theme .second-level-menu-list .back,
+html.lc-theme .second-level-menu-list .corner {
+  display: none !important;
+}
+
+html.lc-theme .second-level-menu-list li {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  background: transparent !important;
+  border: none !important;
+  list-style: none !important;
+  position: static !important;
+  top: 0 !important;
+  bottom: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  transform: none !important;
+  height: auto !important;
+  min-height: 0 !important;
+  box-sizing: border-box !important;
+  line-height: normal !important;
+  width: auto !important;
+}
+
+html.lc-theme .second-level-menu-list li a {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 4px 10px !important;
+  border-radius: 15px !important;
+  font-size: 13px !important;
+  font-weight: 500 !important;
+  color: var(--lc-text-secondary) !important;
+  text-decoration: none !important;
+  line-height: 1.2 !important;
+  transition: all 0.15s ease !important;
+  border: 1px solid transparent !important;
+  margin: 0 !important;
+  position: static !important;
+  top: 0 !important;
+  bottom: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  transform: none !important;
+  height: auto !important;
+  min-height: 0 !important;
+  box-sizing: border-box !important;
+  vertical-align: middle !important;
+}
+
+html.lc-theme .second-level-menu-list li a:hover {
+  color: #ffffff !important;
+  background: rgba(255, 255, 255, 0.08) !important;
+}
+
+html.lc-theme .second-level-menu-list li.current a,
+html.lc-theme .second-level-menu-list li a.current {
+  background: rgba(255, 161, 22, 0.15) !important;
+  color: var(--lc-accent-orange) !important;
+  font-weight: 600 !important;
+  position: static !important;
+  top: 0 !important;
+  bottom: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  transform: none !important;
+}
+
+/* Hide legacy stats banner */
+.lc-stats-banner {
+  display: none !important;
+}
+
+/* ==========================================================================
+   LeetCode Problemset Toolbar (Search, Filter, Pick One)
+   ========================================================================== */
+
+.lc-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  /* background: var(--lc-bg-card); */
+  /* border: 1px solid var(--lc-border); */
+  border-radius: 10px;
+  /* padding: 12px 16px; */
+  margin-top: 16px;
+  margin-bottom: 16px;
+  /* box-shadow: 0 4px 14px rgba(0, 0, 0, 0.18); */
+}
+
+.lc-toolbar-left {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  flex: 1;
+}
+
+.lc-search-wrap {
+  position: relative;
+  min-width: 220px;
+  flex: 1;
+  max-width: 320px;
+}
+
+html.lc-theme #cf-lc-search,
+html.lc-theme input#cf-lc-search,
+html.lc-theme .lc-search-input,
+.lc-search-input {
+  width: 100%;
+  background: var(--lc-bg-main) !important;
+  border: 1px solid var(--lc-border) !important;
+  border-radius: 15px !important;
+  color: #eff1f6 !important;
+  padding: 7px 12px !important;
+  font-size: 13px !important;
+  outline: none;
+  box-sizing: border-box !important;
+  transition: border-color 0.2s;
+}
+
+.lc-search-wrap:has(.lc-search-icon) .lc-search-input {
+  padding-left: 32px !important;
+}
+
+.lc-search-icon {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: inline-flex;
+  align-items: center;
+  pointer-events: none;
+}
+
+html.lc-theme #cf-lc-search:focus,
+html.lc-theme input#cf-lc-search:focus,
+html.lc-theme .lc-search-input:focus,
+.lc-search-input:focus {
+  background: var(--lc-bg-main) !important;
+  border-color: var(--lc-accent-orange) !important;
+}
+
+.lc-filter-group {
+  display: flex;
+  align-items: center;
+  background: #1c1c1c;
+  border: 1px solid var(--lc-border);
+  border-radius: 15px;
+  padding: 2px;
+}
+
+.lc-filter-btn {
+  background: transparent;
+  border: none;
+  color: var(--lc-text-secondary);
+  font-size: 12px;
+  font-weight: 500;
+  padding: 5px 10px;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.lc-filter-btn:hover {
+  color: #fff;
+}
+
+.lc-filter-btn.active {
+  background: #333333;
+  color: #fff;
+  font-weight: 600;
+}
+
+.lc-filter-btn.active.easy {
+  color: var(--lc-diff-easy);
+  background: var(--lc-diff-easy-bg);
+}
+
+.lc-filter-btn.active.medium {
+  color: var(--lc-diff-medium);
+  background: var(--lc-diff-medium-bg);
+}
+
+.lc-filter-btn.active.hard {
+  color: var(--lc-diff-hard);
+  background: var(--lc-diff-hard-bg);
+}
+
+.lc-toolbar-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.lc-pick-one-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255, 161, 22, 0.15);
+  border: 0px solid rgba(255, 161, 22, 0.35);
+  color: var(--lc-accent-orange);
+  font-size: 12px;
+  font-weight: 600;
+  padding: 6px 14px;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.lc-title-diff-chip {
+  display: inline-flex;
+  align-items: center;
+  margin-left: 12px;
+  vertical-align: middle;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: 9999px;
+}
+
+/* ==========================================================================
+   Topics Column & Modal Dialog
+   ========================================================================== */
+
+.lc-actions-cell {
+  text-align: right !important;
+  white-space: nowrap !important;
+  width: 1% !important;
+  padding: 8px 4px !important;
+}
+
+.lc-actions-group {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 3px;
+}
+
+.lc-icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 4px;
+  background: transparent;
+  border: 1px solid transparent;
+  color: var(--lc-text-secondary);
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  padding: 0;
+  text-decoration: none;
+  box-sizing: border-box;
+  line-height: 1;
+}
+
+.lc-icon-btn svg,
+.lc-lucide-icon {
+  display: inline-block;
+  vertical-align: middle;
+  flex-shrink: 0;
+}
+
+.lc-icon-btn:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+}
+
+.lc-btn-star:hover {
+  color: #ffa116;
+  border-color: rgba(255, 161, 22, 0.35);
+}
+
+.lc-btn-star.favorited {
+  color: #ffa116 !important;
+  background: rgba(255, 161, 22, 0.12) !important;
+  border-color: rgba(255, 161, 22, 0.4) !important;
+}
+
+.lc-btn-submit:hover {
+  color: #60a5fa;
+  border-color: rgba(96, 165, 250, 0.35);
+}
+
+.lc-btn-topics:hover {
+  color: #a78bfa;
+  border-color: rgba(167, 139, 250, 0.35);
+}
+
+.lc-topics-cell {
+  text-align: center !important;
+  white-space: nowrap !important;
+  width: 90px !important;
+  padding: 10px 8px !important;
+}
+
+.lc-topics-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--lc-border);
+  color: var(--lc-text-secondary);
+  font-size: 11px;
+  font-weight: 500;
+  padding: 4px 10px;
+  border-radius: 9999px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.lc-topics-btn:hover {
+  background: rgba(255, 161, 22, 0.15);
+  border-color: rgba(255, 161, 22, 0.4);
+  color: var(--lc-accent-orange);
+}
+
+/* Dialog Overlay & Modal */
+.lc-dialog-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.72);
+  backdrop-filter: blur(4px);
+  z-index: 100000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: lc-fade-in 0.15s ease;
+}
+
+@keyframes lc-fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.lc-dialog-modal {
+  background: #242424;
+  border: 1px solid var(--lc-border);
+  border-radius: 12px;
+  width: 440px;
+  max-width: 90vw;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  animation: lc-scale-up 0.15s ease;
+}
+
+@keyframes lc-scale-up {
+  from {
+    transform: scale(0.95);
+    opacity: 0;
+  }
+
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.lc-dialog-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 18px;
+  border-bottom: 1px solid var(--lc-border);
+  background: #1f1f1f;
+}
+
+.lc-dialog-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #ffffff;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.lc-dialog-icon {
+  font-size: 16px;
+}
+
+.lc-dialog-close-btn {
+  background: transparent;
+  border: none;
+  color: var(--lc-text-secondary);
+  font-size: 20px;
+  line-height: 1;
+  cursor: pointer;
+  padding: 2px 6px;
+  border-radius: 4px;
+  transition: all 0.15s ease;
+}
+
+.lc-dialog-close-btn:hover {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.lc-dialog-body {
+  padding: 18px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  max-height: 360px;
+  overflow-y: auto;
+}
+
+.lc-dialog-tag-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #333842;
+  color: #cbd5e1;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 9999px;
+  padding: 5px 12px;
+  font-size: 12px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.15s ease;
+}
+
+.lc-dialog-tag-pill:hover {
+  background: var(--lc-accent-orange);
+  color: #1a1a1a;
+  border-color: var(--lc-accent-orange);
+}
+
+.lc-dialog-empty {
+  color: var(--lc-text-muted);
+  font-size: 13px;
+  font-style: italic;
+  padding: 10px 0;
+}
+
+/* ==========================================================================
+   LeetCode-Style Problemset Table
+   ========================================================================== */
+
+/* Hide legacy Codeforces datatable header ("Problems", magnifier icon, filter, rowCount) */
+html.lc-theme .datatable>div:has(.userListMarker),
+html.lc-theme .datatable>div:has(.rowCount),
+html.lc-theme .datatable>div:has(img.closed),
+html.lc-theme .datatable>div:has(span.filter),
+html.lc-theme div:has(> .userListMarker),
+html.lc-theme .userListMarker,
+html.lc-theme .rowCount {
+  display: none !important;
+}
+
+/* Hide Codeforces contest announcement infobars */
+html.lc-theme [data-infobarid],
+html.lc-theme .alert.alert-success,
+html.lc-theme .alert:has(.infobar-close) {
+  display: none !important;
+}
+
+html.lc-theme .datatable,
+html.lc-theme .lc-table-roundbox,
+html.lc-theme .roundbox:has(table.problems) {
+  background: transparent !important;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+}
+
+html.lc-theme .datatable div {
+  background: transparent !important;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+html.lc-theme table.problems {
+  width: 100% !important;
+  border-collapse: separate !important;
+  border-spacing: 0 5px !important;
+  background: transparent !important;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+  margin-bottom: 20px !important;
+}
+
+/* Table Header */
+html.lc-theme table.problems th {
+  background: transparent !important;
+  color: var(--lc-text-secondary) !important;
+  font-size: 11px !important;
+  font-weight: 600 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.6px !important;
+  padding: 8px 16px !important;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  text-align: left !important;
+}
+
+/* Table Body Rows */
+html.lc-theme table.problems td.act,
+html.lc-theme table.problems th.act,
+html.lc-theme table.problems .act {
+  display: none !important;
+}
+
+/* Problem List Tiles (Each row as an individual rounded tile without borders) */
+html.lc-theme table.problems tr.lc-problem-row,
+html.lc-theme table.problems tr:not(:first-child) {
+  cursor: pointer !important;
+}
+
+html.lc-theme table.problems tr.lc-problem-row td,
+html.lc-theme table.problems tr:not(:first-child) td {
+  padding: 10px 14px !important;
+  border: none !important;
+  color: var(--lc-text-primary) !important;
+  font-size: 14px !important;
+  vertical-align: middle !important;
+  background-color: var(--lc-bg-card) !important;
+  transition: background-color 0.15s ease !important;
+}
+
+html.lc-theme table.problems tr.lc-problem-row:nth-child(even) td,
+html.lc-theme table.problems tr:not(:first-child):nth-child(even) td {
+  background-color: var(--lc-bg-card-alt) !important;
+}
+
+html.lc-theme table.problems tr.lc-problem-row:hover td,
+html.lc-theme table.problems tr:not(:first-child):hover td {
+  background-color: var(--lc-bg-hover) !important;
+  border: none !important;
+}
+
+/* Left-most cell of each problem tile: rounded left corners */
+html.lc-theme table.problems tr.lc-problem-row td.lc-title-cell,
+html.lc-theme table.problems tr:not(:first-child) td.lc-title-cell {
+  border-top-left-radius: 12px !important;
+  border-bottom-left-radius: 12px !important;
+  border: none !important;
+  padding-left: 20px !important;
+  padding-top: 6px !important;
+  padding-bottom: 6px !important;
+}
+
+/* Right-most cell of each problem tile: rounded right corners */
+html.lc-theme table.problems tr.lc-problem-row td.lc-solved-cell,
+html.lc-theme table.problems tr:not(:first-child) td.lc-solved-cell {
+  border-top-right-radius: 12px !important;
+  border-bottom-right-radius: 12px !important;
+  border: none !important;
+  padding-right: 20px !important;
+  padding-top: 6px !important;
+  padding-bottom: 6px !important;
+}
+
+/* Accepted / Solved Problems in Table */
+html.lc-theme table.problems tr.accepted-problem td,
+html.lc-theme table.problems tr.lc-problem-row.accepted-problem td {
+  background-color: rgba(0, 184, 163, 0.08) !important;
+  border: none !important;
+}
+
+html.lc-theme table.problems tr.accepted-problem:hover td,
+html.lc-theme table.problems tr.lc-problem-row.accepted-problem:hover td {
+  background-color: rgba(0, 184, 163, 0.15) !important;
+  border: none !important;
+}
+
+/* Solved Checkmark Icon */
+.lc-status-cell {
+  width: 36px !important;
+  text-align: center !important;
+  padding: 0 8px !important;
+}
+
+.lc-status-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--lc-diff-easy);
+  font-weight: 700;
+  font-size: 16px;
+}
+
+/* Problem ID and Title */
+html.lc-theme table.problems td.id a {
+  color: var(--lc-text-secondary) !important;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace !important;
+  font-size: 13px !important;
+  font-weight: 600 !important;
+}
+
+html.lc-theme table.problems td.id a:hover {
+  color: var(--lc-accent-orange) !important;
+}
+
+.lc-problem-title {
+  color: #ffffff !important;
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  transition: color 0.15s ease;
+}
+
+.lc-problem-title:hover {
+  color: var(--lc-accent-orange) !important;
+}
+
+/* Problemset Table Columns Layout */
+html.lc-theme table.problems th.lc-title-header,
+html.lc-theme table.problems td.lc-title-cell {
+  width: auto !important;
+  text-align: left !important;
+  padding: 6px 16px 6px 20px !important;
+}
+
+html.lc-theme table.problems th.lc-actions-header,
+html.lc-theme table.problems td.lc-actions-cell {
+  width: 1% !important;
+  white-space: nowrap !important;
+  text-align: right !important;
+  padding: 6px 4px !important;
+}
+
+html.lc-theme table.problems th.lc-rating-header,
+html.lc-theme table.problems td.lc-rating-cell {
+  width: 1% !important;
+  white-space: nowrap !important;
+  text-align: right !important;
+  padding: 6px 12px 6px 6px !important;
+}
+
+html.lc-theme table.problems th.lc-solved-header,
+html.lc-theme table.problems td.lc-solved-cell {
+  width: 1% !important;
+  white-space: nowrap !important;
+  text-align: right !important;
+  padding: 6px 20px 6px 6px !important;
+}
+
+/* LeetCode Difficulty Simple Colored Text (No badge/clutter) */
+.lc-diff-text {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace !important;
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  white-space: nowrap !important;
+  display: inline-block !important;
+  line-height: 1.2 !important;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+}
+
+.lc-diff-text.lc-diff-easy {
+  color: var(--lc-diff-easy) !important;
+  background: transparent !important;
+}
+
+.lc-diff-text.lc-diff-medium {
+  color: var(--lc-diff-medium) !important;
+  background: transparent !important;
+}
+
+.lc-diff-text.lc-diff-hard {
+  color: var(--lc-diff-hard) !important;
+  background: transparent !important;
+}
+
+.lc-diff-text.lc-diff-unrated {
+  color: #6b7280 !important;
+  font-weight: 600 !important;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+}
+
+/* LeetCode Difficulty Badges (used in standalone chips) */
+.lc-diff-badge {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 5px !important;
+  padding: 3px 10px !important;
+  border-radius: 9999px !important;
+  font-size: 12px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.2px !important;
+  white-space: nowrap !important;
+}
+
+.lc-diff-badge.lc-diff-easy {
+  color: var(--lc-diff-easy) !important;
+  background: var(--lc-diff-easy-bg) !important;
+  /* border: 1px solid var(--lc-diff-easy-border) !important; */
+}
+
+.lc-diff-badge.lc-diff-medium {
+  color: var(--lc-diff-medium) !important;
+  background: var(--lc-diff-medium-bg) !important;
+  /* border: 1px solid var(--lc-diff-medium-border) !important; */
+}
+
+.lc-diff-badge.lc-diff-hard {
+  color: var(--lc-diff-hard) !important;
+  background: var(--lc-diff-hard-bg) !important;
+  /* border: 1px solid var(--lc-diff-hard-border) !important; */
+}
+
+.lc-diff-badge.lc-diff-unrated {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  min-width: 28px !important;
+  height: 22px !important;
+  padding: 0 10px !important;
+  border-radius: 9999px !important;
+  font-size: 14px !important;
+  font-weight: 700 !important;
+  color: #8c8c8c !important;
+  background: rgba(255, 255, 255, 0.08) !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+}
+
+.lc-diff-rating {
+  /* opacity: 0.8; */
+  font-size: 11px !important;
+  font-weight: 700 !important;
+}
+
+/* Completely hide any tag links, notices, and tag containers inside table.problems */
+html.lc-theme table.problems a[href*="/problemset/tags/"],
+html.lc-theme table.problems a.notice,
+html.lc-theme table.problems .notice,
+html.lc-theme table.problems .lc-tags-container,
+html.lc-theme table.problems .lc-title-cell div[style*="font-size: 11px"],
+html.lc-theme table.problems .lc-title-cell div[style*="padding-top: 6px"] {
+  display: none !important;
+}
+
+/* LeetCode Tag Pills (used in dialog and sidebar) */
+.lc-tags-container {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 4px !important;
+  margin-top: 6px !important;
+}
+
+html.lc-theme .lc-tag-pill,
+html.lc-theme .tag-box {
+  display: inline-flex !important;
+  align-items: center !important;
+  background: var(--lc-tag-bg) !important;
+  color: #cbd5e1 !important;
+  padding: 2px 8px !important;
+  border-radius: 9999px !important;
+  font-size: 11px !important;
+  font-weight: 400 !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  text-decoration: none !important;
+  transition: all 0.15s ease !important;
+}
+
+html.lc-theme .lc-tag-pill:hover,
+html.lc-theme .tag-box:hover {
+  background: var(--lc-tag-hover) !important;
+  color: #ffffff !important;
+  border-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+/* Solved Count */
+html.lc-theme table.problems td.lc-solved-cell img {
+  display: none !important;
+}
+
+html.lc-theme table.problems a[href*="/status/"] {
+  color: var(--lc-text-secondary) !important;
+  font-size: 13px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: flex-end !important;
+  text-decoration: none !important;
+}
+
+html.lc-theme table.problems a[href*="/status/"]:hover {
+  color: var(--lc-text-primary) !important;
+}
+
+.lc-solved-num {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace !important;
+  font-size: 13px !important;
+  font-weight: 500 !important;
+  color: var(--lc-text-secondary) !important;
+  white-space: nowrap !important;
+}
+
+/* ==========================================================================
+   Sidebar Filters (LeetCode Style)
+   ========================================================================== */
+
+html.lc-theme #sidebar {
+  padding-left: 18px !important;
+  box-sizing: border-box !important;
+}
+
+html.lc-theme #sidebar .roundbox,
+html.lc-theme #sidebar .sidebox {
+  background: #222222 !important;
+  border: 1px solid var(--lc-border) !important;
+  border-radius: 12px !important;
+  padding: 16px !important;
+  margin-bottom: 16px !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25) !important;
+  position: relative !important;
+  box-sizing: border-box !important;
+}
+
+/* Remove legacy roundbox corners and borders in sidebar */
+html.lc-theme #sidebar .roundbox-lt,
+html.lc-theme #sidebar .roundbox-rt,
+html.lc-theme #sidebar .roundbox-lb,
+html.lc-theme #sidebar .roundbox-rb,
+html.lc-theme #sidebar .roundbox-top,
+html.lc-theme #sidebar .roundbox-bottom,
+html.lc-theme #sidebar .bottom-links,
+html.lc-theme #sidebar .top-links,
+html.lc-theme #sidebar .corner {
+  display: none !important;
+}
+
+html.lc-theme #sidebar .sidebox.bottom-bordered {
+  border-bottom: 1px solid var(--lc-border) !important;
+}
+
+/* Sidebar Caption (Title) */
+html.lc-theme #sidebar .caption.titled,
+html.lc-theme #sidebar .caption {
+  font-size: 14px !important;
+  font-weight: 700 !important;
+  color: #eff1f6 !important;
+  letter-spacing: 0.2px !important;
+  border-bottom: 1px solid var(--lc-border-subtle) !important;
+  padding: 0 0 10px 0 !important;
+  margin: 0 0 14px 0 !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  background: transparent !important;
+}
+
+.lc-sidebar-caption-icon {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  color: var(--lc-accent-orange) !important;
+  flex-shrink: 0 !important;
+}
+
+/* Sidebar Forms & Groups */
+html.lc-theme #sidebar form {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Difficulty Range Row */
+html.lc-theme #sidebar .lc-diff-filter-row,
+html.lc-theme #sidebar form div:has(input[name="minDifficulty"]) {
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  margin-bottom: 14px !important;
+  color: var(--lc-text-secondary) !important;
+  font-size: 13px !important;
+  font-weight: 500 !important;
+}
+
+html.lc-theme #sidebar input[name="minDifficulty"],
+html.lc-theme #sidebar input[name="maxDifficulty"] {
+  width: 72px !important;
+  height: 30px !important;
+  text-align: center !important;
+  padding: 4px 8px !important;
+  font-size: 12px !important;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace !important;
+  border-radius: 6px !important;
+  background: var(--lc-bg-main) !important;
+  border: 1px solid var(--lc-border) !important;
+  color: #eff1f6 !important;
+  display: inline-block !important;
+  box-sizing: border-box !important;
+}
+
+html.lc-theme #sidebar input[name="minDifficulty"]:focus,
+html.lc-theme #sidebar input[name="maxDifficulty"]:focus {
+  border-color: var(--lc-accent-orange) !important;
+}
+
+/* Text inputs and selects inside sidebar */
+html.lc-theme #sidebar input[type="text"],
+html.lc-theme #sidebar select,
+html.lc-theme input[type="text"],
+html.lc-theme select {
+  background: var(--lc-bg-main) !important;
+  border: 1px solid var(--lc-border) !important;
+  border-radius: 6px !important;
+  color: var(--lc-text-primary) !important;
+  padding: 7px 10px !important;
+  font-size: 13px !important;
+  box-sizing: border-box !important;
+  outline: none !important;
+  transition: border-color 0.2s !important;
+}
+
+html.lc-theme #sidebar input[type="text"]:focus,
+html.lc-theme #sidebar select:focus,
+html.lc-theme input[type="text"]:focus,
+html.lc-theme select:focus {
+  background: var(--lc-bg-main) !important;
+  border-color: var(--lc-accent-orange) !important;
+}
+
+html.lc-theme input:-webkit-autofill,
+html.lc-theme input:-webkit-autofill:hover,
+html.lc-theme input:-webkit-autofill:focus {
+  -webkit-text-fill-color: var(--lc-text-primary) !important;
+  -webkit-box-shadow: 0 0 0px 1000px var(--lc-bg-main) inset !important;
+  transition: background-color 5000s ease-in-out 0s !important;
+}
+
+/* Custom Modern Checkboxes for Tags */
+html.lc-theme #sidebar input[type="checkbox"] {
+  appearance: none !important;
+  -webkit-appearance: none !important;
+  width: 15px !important;
+  height: 15px !important;
+  min-width: 15px !important;
+  min-height: 15px !important;
+  border: 1px solid var(--lc-border) !important;
+  border-radius: 4px !important;
+  background: var(--lc-bg-main) !important;
+  cursor: pointer !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  vertical-align: middle !important;
+  margin: 0 6px 0 0 !important;
+  position: relative !important;
+  transition: all 0.15s ease !important;
+  flex-shrink: 0 !important;
+}
+
+html.lc-theme #sidebar input[type="checkbox"]:hover {
+  border-color: var(--lc-accent-orange) !important;
+}
+
+html.lc-theme #sidebar input[type="checkbox"]:checked {
+  background: var(--lc-accent-orange) !important;
+  border-color: var(--lc-accent-orange) !important;
+}
+
+html.lc-theme #sidebar input[type="checkbox"]:checked::after {
+  content: '' !important;
+  display: block !important;
+  width: 4px !important;
+  height: 7px !important;
+  border: solid #000000 !important;
+  border-width: 0 2px 2px 0 !important;
+  transform: rotate(45deg) translate(-0.5px, -1px) !important;
+}
+
+/* Tag labels & items */
+html.lc-theme #sidebar label {
+  color: var(--lc-text-secondary) !important;
+  font-size: 12px !important;
+  cursor: pointer !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  line-height: 1.4 !important;
+  transition: color 0.15s ease !important;
+  user-select: none !important;
+}
+
+html.lc-theme #sidebar label:hover {
+  color: #ffffff !important;
+}
+
+/* Sidebar tag list / table */
+html.lc-theme #sidebar table {
+  width: 100% !important;
+  border-collapse: collapse !important;
+  background: transparent !important;
+  border: none !important;
+  margin-bottom: 12px !important;
+}
+
+html.lc-theme #sidebar table td {
+  background: transparent !important;
+  border: none !important;
+  padding: 4px 2px !important;
+  vertical-align: middle !important;
+}
+
+/* Scrollable container for tag list */
+.lc-sidebar-tags-scroll {
+  max-height: 280px !important;
+  overflow-y: auto !important;
+  padding-right: 4px !important;
+  margin-bottom: 12px !important;
+}
+
+.lc-sidebar-tags-scroll::-webkit-scrollbar {
+  width: 5px !important;
+}
+
+.lc-sidebar-tags-scroll::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.04) !important;
+  border-radius: 9999px !important;
+}
+
+.lc-sidebar-tags-scroll::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.18) !important;
+  border-radius: 9999px !important;
+}
+
+.lc-sidebar-tags-scroll::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.3) !important;
+}
+
+/* Submit & Action buttons in sidebar */
+html.lc-theme #sidebar input[type="submit"] {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 100% !important;
+  height: 36px !important;
+  background: var(--lc-accent-orange) !important;
+  color: #000000 !important;
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  border: none !important;
+  border-radius: 8px !important;
+  cursor: pointer !important;
+  transition: background 0.15s ease, transform 0.1s ease !important;
+  margin-top: 10px !important;
+  box-shadow: 0 2px 8px rgba(255, 161, 22, 0.25) !important;
+}
+
+html.lc-theme #sidebar input[type="submit"]:hover {
+  background: var(--lc-accent-orange-hover) !important;
+  transform: translateY(-1px) !important;
+}
+
+html.lc-theme #sidebar input[type="submit"]:active {
+  transform: translateY(0) !important;
+}
+
+/* Reset / Clear links */
+html.lc-theme #sidebar a[href*="/problemset"] {
+  color: var(--lc-text-secondary) !important;
+  font-size: 12px !important;
+  text-decoration: none !important;
+  transition: color 0.15s ease !important;
+}
+
+html.lc-theme #sidebar a[href*="/problemset"]:hover {
+  color: var(--lc-text-primary) !important;
+  text-decoration: underline !important;
+}
+
+/* Notices & small helper text */
+html.lc-theme #sidebar .notice {
+  color: var(--lc-text-muted) !important;
+  font-size: 11px !important;
+  line-height: 1.4 !important;
+  margin-top: 6px !important;
+  display: block !important;
+}
+
+/* ==========================================================================
+   Contest Cards (Pay Attention Section)
+   ========================================================================== */
+
+.lc-contest-cards-container {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 12px !important;
+  margin-top: 4px !important;
+}
+
+.lc-contest-card {
+  background: linear-gradient(135deg, rgba(38, 38, 38, 0.95) 0%, rgba(26, 26, 26, 0.95) 100%) !important;
+  border: 1px solid var(--lc-border) !important;
+  border-radius: 25px !important;
+  padding: 14px 14px !important;
+  /* box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35) !important; */
+  transition: transform 0.15s ease, border-color 0.15s ease !important;
+  position: relative !important;
+  overflow: hidden !important;
+  box-sizing: border-box !important;
+}
+
+.lc-contest-card:hover {
+  border-color: rgba(255, 161, 22, 0.4) !important;
+  transform: translateY(-1px) !important;
+}
+
+.lc-contest-card.is-running {
+  border-color: rgba(0, 184, 163, 0.45) !important;
+  background: linear-gradient(135deg, rgba(0, 184, 163, 0.08) 0%, rgba(26, 26, 26, 0.98) 100%) !important;
+}
+
+.lc-contest-card.is-running:hover {
+  border-color: #00b8a3 !important;
+}
+
+/* Header badge */
+.lc-contest-header {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  margin-bottom: 8px !important;
+}
+
+.lc-contest-badge {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 5px !important;
+  padding: 2px 8px !important;
+  border-radius: 9999px !important;
+  font-size: 11px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.3px !important;
+  text-transform: uppercase !important;
+}
+
+.lc-contest-badge.running {
+  background: rgba(0, 184, 163, 0.18) !important;
+  color: #00b8a3 !important;
+  border: 1px solid rgba(0, 184, 163, 0.35) !important;
+}
+
+.lc-contest-badge.register {
+  background: rgba(255, 161, 22, 0.18) !important;
+  color: var(--lc-accent-orange) !important;
+  border: 1px solid rgba(255, 161, 22, 0.35) !important;
+}
+
+.lc-contest-badge.upcoming {
+  background: rgba(56, 189, 248, 0.18) !important;
+  color: #38bdf8 !important;
+  border: 1px solid rgba(56, 189, 248, 0.35) !important;
+}
+
+/* Pulsing live dot */
+.lc-live-dot {
+  width: 7px !important;
+  height: 7px !important;
+  border-radius: 50% !important;
+  background: #00b8a3 !important;
+  box-shadow: 0 0 8px #00b8a3 !important;
+  animation: lc-pulse 1.5s infinite !important;
+  display: inline-block !important;
+}
+
+@keyframes lc-pulse {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(0, 184, 163, 0.7);
+  }
+
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 6px rgba(0, 184, 163, 0);
+  }
+
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(0, 184, 163, 0);
+  }
+}
+
+/* Contest Card Title */
+.lc-contest-title {
+  display: block !important;
+  color: #eff1f6 !important;
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  line-height: 1.4 !important;
+  text-decoration: none !important;
+  margin-bottom: 8px !important;
+  transition: color 0.15s ease !important;
+}
+
+.lc-contest-title:hover {
+  color: var(--lc-accent-orange) !important;
+  text-decoration: underline !important;
+}
+
+/* Contest Timing Row */
+.lc-contest-meta {
+  display: flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  color: var(--lc-text-secondary) !important;
+  font-size: 12px !important;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace !important;
+  margin-bottom: 12px !important;
+}
+
+.lc-contest-time-label {
+  color: var(--lc-text-secondary) !important;
+  font-size: 12px !important;
+  font-weight: 500 !important;
+}
+
+.lc-contest-time {
+  font-weight: 600 !important;
+  color: #eff1f6 !important;
+}
+
+/* Action Button */
+.lc-contest-btn {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 6px !important;
+  width: 100% !important;
+  height: 32px !important;
+  border-radius: 6px !important;
+  font-size: 12px !important;
+  font-weight: 700 !important;
+  text-decoration: none !important;
+  transition: all 0.15s ease !important;
+  box-sizing: border-box !important;
+}
+
+.lc-contest-btn.enter {
+  background: #00b8a3 !important;
+  color: #000000 !important;
+  box-shadow: 0 2px 8px rgba(0, 184, 163, 0.3) !important;
+}
+
+.lc-contest-btn.enter:hover {
+  background: #00d6bd !important;
+  box-shadow: 0 4px 12px rgba(0, 184, 163, 0.45) !important;
+  transform: translateY(-1px) !important;
+}
+
+.lc-contest-btn.register {
+  background: var(--lc-accent-orange) !important;
+  color: #000000 !important;
+  box-shadow: 0 2px 8px rgba(255, 161, 22, 0.3) !important;
+}
+
+.lc-contest-btn.register:hover {
+  background: var(--lc-accent-orange-hover) !important;
+  box-shadow: 0 4px 12px rgba(255, 161, 22, 0.45) !important;
+  transform: translateY(-1px) !important;
+}
+
+/* ==========================================================================
+   Pagination (LeetCode Style)
+   ========================================================================== */
+
+html.lc-theme .pagination {
+  margin: 20px 0 !important;
+}
+
+html.lc-theme .pagination ul {
+  display: flex !important;
+  list-style: none !important;
+  gap: 6px !important;
+  padding: 0 !important;
+  align-items: center !important;
+}
+
+html.lc-theme .pagination li a,
+html.lc-theme .pagination li span.active,
+html.lc-theme .pagination span.active {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  min-width: 34px !important;
+  height: 34px !important;
+  padding: 0 8px !important;
+  border-radius: 6px !important;
+  background: var(--lc-bg-card) !important;
+  border: 1px solid var(--lc-border) !important;
+  color: var(--lc-text-secondary) !important;
+  font-size: 13px !important;
+  font-weight: 500 !important;
+  transition: all 0.15s ease !important;
+}
+
+html.lc-theme .pagination li a:hover {
+  background: var(--lc-bg-hover) !important;
+  color: #ffffff !important;
+  border-color: #555 !important;
+}
+
+html.lc-theme .pagination li span.active,
+html.lc-theme .pagination span.active {
+  background: var(--lc-accent-orange) !important;
+  color: #1a1a1a !important;
+  font-weight: 700 !important;
+  border-color: var(--lc-accent-orange) !important;
+}
+
+/* ==========================================================================
+   Problem Statement Page (LeetCode Problem View)
+   ========================================================================== */
+
+html.lc-theme .problem-statement {
+  background: var(--lc-bg-card) !important;
+  border: 1px solid var(--lc-border) !important;
+  border-radius: 12px !important;
+  padding: 24px 28px !important;
+  color: var(--lc-text-primary) !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25) !important;
+}
+
+html.lc-theme .problem-statement .header {
+  border-bottom: 1px solid var(--lc-border-subtle) !important;
+  padding-bottom: 16px !important;
+  margin-bottom: 20px !important;
+}
+
+html.lc-theme .problem-statement .header .title {
+  font-size: 24px !important;
+  font-weight: 700 !important;
+  color: #ffffff !important;
+  letter-spacing: -0.3px;
+  margin-bottom: 12px !important;
+}
+
+html.lc-theme .problem-statement .header .time-limit,
+html.lc-theme .problem-statement .header .memory-limit,
+html.lc-theme .problem-statement .header .input-file,
+html.lc-theme .problem-statement .header .output-file {
+  display: inline-block !important;
+  background: rgba(255, 255, 255, 0.05) !important;
+  border: 1px solid var(--lc-border) !important;
+  border-radius: 6px !important;
+  padding: 3px 8px !important;
+  font-size: 11px !important;
+  color: var(--lc-text-secondary) !important;
+  margin-right: 8px !important;
+  margin-bottom: 6px !important;
+}
+
+/* Sample test cases */
+html.lc-theme .sample-tests {
+  margin-top: 24px !important;
+}
+
+html.lc-theme .sample-tests .section-title {
+  color: var(--lc-text-primary) !important;
+  font-size: 15px !important;
+  font-weight: 600 !important;
+  margin-bottom: 10px !important;
+}
+
+html.lc-theme .sample-test {
+  background: #181b22 !important;
+  border: 1px solid var(--lc-border) !important;
+  border-radius: 8px !important;
+  overflow: hidden !important;
+}
+
+html.lc-theme .sample-test .input,
+html.lc-theme .sample-test .output {
+  border: none !important;
+  padding: 12px 16px !important;
+  position: relative;
+}
+
+html.lc-theme .sample-test .title {
+  color: var(--lc-accent-orange) !important;
+  font-size: 12px !important;
+  font-weight: 600 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.5px !important;
+  margin-bottom: 6px !important;
+}
+
+html.lc-theme .sample-test pre {
+  background: transparent !important;
+  color: #38bdf8 !important;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace !important;
+  font-size: 13px !important;
+  line-height: 1.5 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Copy button for test cases */
+.lc-copy-btn {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid var(--lc-border);
+  color: var(--lc-text-secondary);
+  border-radius: 4px;
+  padding: 3px 8px;
+  font-size: 11px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.lc-copy-btn:hover {
+  background: var(--lc-accent-orange);
+  color: #1a1a1a;
+  border-color: var(--lc-accent-orange);
+}
+
+/* MathJax dark mode adjustment */
+html.lc-theme .MathJax,
+html.lc-theme .MathJax_Display,
+html.lc-theme .mjx-chtml {
+  color: #e2e8f0 !important;
+}
+
+/* Footer */
+html.lc-theme #footer {
+  border-top: 1px solid var(--lc-border) !important;
+  background: var(--lc-bg-main) !important;
+  color: var(--lc-text-muted) !important;
+  padding: 24px 0 !important;
+  text-align: center !important;
+}
+
+/* ==========================================================================
+   Codeforces Submissions, Verdicts & Code Blocks
+   ========================================================================== */
+
+html.lc-theme .verdict-accepted {
+  color: var(--lc-diff-easy) !important;
+  font-weight: 600 !important;
+}
+
+html.lc-theme .verdict-rejected,
+html.lc-theme .verdict-failed {
+  color: var(--lc-diff-hard) !important;
+  font-weight: 600 !important;
+}
+
+html.lc-theme .verdict-waiting {
+  color: var(--lc-diff-medium) !important;
+}
+
+html.lc-theme .verdict-challenged {
+  color: var(--lc-accent-orange) !important;
+}
+
+/* Code viewer */
+html.lc-theme pre.prettyprint,
+html.lc-theme .prettyprint,
+html.lc-theme code {
+  background: #181b22 !important;
+  border: 1px solid var(--lc-border) !important;
+  border-radius: 8px !important;
+  color: #e2e8f0 !important;
+}
+
+html.lc-theme .linenums li {
+  color: #64748b !important;
+  background: #181b22 !important;
+}
+
+html.lc-theme .linenums li:nth-child(odd) {
+  background: #1c202a !important;
+}
+
+/* Standings & Status Tables */
+html.lc-theme .standings,
+html.lc-theme .status-frame-datatable,
+html.lc-theme table.status {
+  width: 100% !important;
+  border-collapse: separate !important;
+  border-spacing: 0 !important;
+  background: var(--lc-bg-card) !important;
+  border: 1px solid var(--lc-border) !important;
+  border-radius: 10px !important;
+  overflow: hidden !important;
+}
+
+html.lc-theme .standings th,
+html.lc-theme .status-frame-datatable th,
+html.lc-theme table.status th {
+  background: var(--lc-bg-header) !important;
+  color: var(--lc-text-secondary) !important;
+  font-size: 11px !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.5px !important;
+  padding: 12px 14px !important;
+  border-bottom: 1px solid var(--lc-border) !important;
+}
+
+html.lc-theme .standings td,
+html.lc-theme .status-frame-datatable td,
+html.lc-theme table.status td {
+  padding: 10px 14px !important;
+  border-bottom: 1px solid var(--lc-border-subtle) !important;
+  color: var(--lc-text-primary) !important;
+}
+
+html.lc-theme .standings tr:hover td,
+html.lc-theme .status-frame-datatable tr:hover td,
+html.lc-theme table.status tr:hover td {
+  background: var(--lc-bg-hover) !important;
+}

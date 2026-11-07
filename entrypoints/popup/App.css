@@ -1,0 +1,273 @@
+.lc-popup {
+  width: 320px;
+  padding: 16px;
+  background: #1a1a1a;
+  color: #eff1f6;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  box-sizing: border-box;
+}
+
+.lc-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #2d2d2d;
+  padding-bottom: 12px;
+  margin-bottom: 14px;
+}
+
+.lc-brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.lc-icon {
+  font-size: 20px;
+}
+
+.lc-title {
+  font-size: 15px;
+  font-weight: 700;
+  margin: 0;
+  color: #ffa116;
+  letter-spacing: -0.2px;
+}
+
+.lc-subtitle {
+  font-size: 10px;
+  color: #909090;
+}
+
+.lc-pill {
+  font-size: 10px;
+  font-weight: 600;
+  background: rgba(255, 161, 22, 0.15);
+  color: #ffa116;
+  padding: 2px 7px;
+  border-radius: 4px;
+  border: 1px solid rgba(255, 161, 22, 0.3);
+}
+
+.lc-card {
+  background: #262626;
+  border: 1px solid #383838;
+  border-radius: 8px;
+  padding: 12px;
+  margin-bottom: 12px;
+}
+
+.theme-hero-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(135deg, #2a2a2a 0%, #222222 100%);
+  border: 1px solid #444;
+}
+
+.theme-hero-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.theme-hero-desc {
+  font-size: 10px;
+  color: #ffa116;
+  margin-top: 2px;
+}
+
+/* Custom Switch */
+.lc-switch {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 22px;
+}
+
+.lc-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #3f3f46;
+  transition: 0.3s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 16px;
+  width: 16px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  transition: 0.3s;
+}
+
+input:checked + .slider {
+  background-color: #ffa116;
+}
+
+input:checked + .slider:before {
+  transform: translateX(18px);
+}
+
+.slider.round {
+  border-radius: 22px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+.lc-card-header {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #909090;
+  margin-bottom: 10px;
+}
+
+.handle-form {
+  display: flex;
+  gap: 8px;
+}
+
+.lc-input {
+  flex: 1;
+  background: #1c1c1c;
+  border: 1px solid #3f3f46;
+  color: #eff1f6;
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-size: 12px;
+  outline: none;
+}
+
+.lc-input:focus {
+  border-color: #ffa116;
+}
+
+.lc-btn {
+  border: none;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 6px 12px;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.lc-btn.primary {
+  background: #ffa116;
+  color: #1a1a1a;
+}
+
+.lc-btn:hover {
+  opacity: 0.9;
+}
+
+.lc-error {
+  color: #ff375f;
+  font-size: 11px;
+  margin-top: 8px;
+}
+
+.user-profile {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid #333;
+}
+
+.user-avatar {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: 2px solid #ffa116;
+  object-fit: cover;
+}
+
+.user-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.user-handle {
+  font-weight: 700;
+  font-size: 14px;
+  text-decoration: none;
+}
+
+.user-rank {
+  font-size: 10px;
+  font-weight: 600;
+  margin-top: 1px;
+}
+
+.user-ratings {
+  display: flex;
+  gap: 8px;
+  font-size: 11px;
+  color: #909090;
+  margin-top: 3px;
+}
+
+.user-ratings strong {
+  color: #eff1f6;
+}
+
+.toggle-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+.toggle-row:last-child {
+  margin-bottom: 0;
+}
+
+.toggle-label {
+  font-size: 12px;
+  font-weight: 500;
+  color: #eff1f6;
+}
+
+.toggle-sub {
+  font-size: 10px;
+  color: #909090;
+  margin-top: 2px;
+}
+
+.lc-footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  color: #909090;
+  padding-top: 4px;
+}
+
+.lc-footer a {
+  color: #ffa116;
+  text-decoration: none;
+}
+
+.lc-footer a:hover {
+  text-decoration: underline;
+}
