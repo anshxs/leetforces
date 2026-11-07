@@ -54,13 +54,13 @@ html.lc-theme .content-with-sidebar {
 }
 
 /* Links */
-html.lc-theme a {
-  color: var(--lc-text-primary) !important;
+html.lc-theme a:not(.rated-user):not([class*="user-"]):not(.lc-diff-text):not(.lc-problem-title):not(.lc-contest-title) {
+  color: var(--lc-text-primary);
   text-decoration: none !important;
   transition: color 0.15s ease;
 }
 
-html.lc-theme a:hover {
+html.lc-theme a:not(.rated-user):not([class*="user-"]):not(.lc-diff-text):not(.lc-problem-title):not(.lc-contest-title):hover {
   color: var(--lc-accent-orange) !important;
 }
 
@@ -1708,8 +1708,9 @@ html.lc-theme #sidebar label:hover {
   color: #eff1f6 !important;
 }
 
-/* Sidebar tag list / table */
-html.lc-theme #sidebar table {
+/* Sidebar tag list / table (ONLY in the filter/tags box) */
+html.lc-theme #sidebar .lc-filter-box table,
+html.lc-theme #sidebar .roundbox:has(input[name="tag"]) table {
   width: 100% !important;
   border-collapse: separate !important;
   border-spacing: 0 4px !important;
@@ -1718,7 +1719,8 @@ html.lc-theme #sidebar table {
   margin: 0 !important;
 }
 
-html.lc-theme #sidebar table td {
+html.lc-theme #sidebar .lc-filter-box table td,
+html.lc-theme #sidebar .roundbox:has(input[name="tag"]) table td {
   background: #262626 !important;
   border: 1px solid transparent !important;
   border-radius: 6px !important;
@@ -1727,17 +1729,20 @@ html.lc-theme #sidebar table td {
   transition: all 0.15s ease !important;
 }
 
-html.lc-theme #sidebar table td:hover {
+html.lc-theme #sidebar .lc-filter-box table td:hover,
+html.lc-theme #sidebar .roundbox:has(input[name="tag"]) table td:hover {
   background: #2c2c2c !important;
   border-color: #3e3e3e !important;
 }
 
-html.lc-theme #sidebar table td.lc-tag-checked {
+html.lc-theme #sidebar .lc-filter-box table td.lc-tag-checked,
+html.lc-theme #sidebar .roundbox:has(input[name="tag"]) table td.lc-tag-checked {
   background: rgba(255, 161, 22, 0.1) !important;
   border-color: rgba(255, 161, 22, 0.3) !important;
 }
 
-html.lc-theme #sidebar table td.lc-tag-checked label {
+html.lc-theme #sidebar .lc-filter-box table td.lc-tag-checked label,
+html.lc-theme #sidebar .roundbox:has(input[name="tag"]) table td.lc-tag-checked label {
   color: var(--lc-accent-orange) !important;
   font-weight: 500 !important;
 }
@@ -1969,8 +1974,7 @@ html.lc-theme #sidebar .roundbox:has(input[name="hideSolved"]) input[type="submi
 
 /* Last Unsolved Sidebox (Compact & Scrollable Inside Card) */
 html.lc-theme .lc-unsolved-box,
-html.lc-theme #sidebar .roundbox:has(ul.recent-unsolved-list),
-html.lc-theme #sidebar .roundbox:has(a[href*="/problem/"]):not(:has(.lc-filter-box)):not(:has(.lc-settings-box)) {
+html.lc-theme #sidebar .roundbox:has(ul.recent-unsolved-list) {
   overflow: hidden !important;
   box-sizing: border-box !important;
 }
@@ -1978,8 +1982,7 @@ html.lc-theme #sidebar .roundbox:has(a[href*="/problem/"]):not(:has(.lc-filter-b
 html.lc-theme .lc-unsolved-list,
 html.lc-theme .lc-unsolved-box ul,
 html.lc-theme .lc-unsolved-scroll,
-html.lc-theme #sidebar .roundbox:has(ul.recent-unsolved-list) ul,
-html.lc-theme #sidebar .roundbox:has(a[href*="/problem/"]):not(:has(.lc-filter-box)):not(:has(.lc-settings-box)) ul {
+html.lc-theme #sidebar .roundbox:has(ul.recent-unsolved-list) ul {
   list-style: none !important;
   padding: 4px 4px 4px 0 !important;
   margin: 6px 0 0 0 !important;
@@ -2024,8 +2027,7 @@ html.lc-theme .lc-unsolved-scroll::-webkit-scrollbar-thumb:hover {
 }
 
 html.lc-theme .lc-unsolved-box li,
-html.lc-theme #sidebar .roundbox:has(ul.recent-unsolved-list) li,
-html.lc-theme #sidebar .roundbox:has(a[href*="/problem/"]):not(:has(.lc-filter-box)):not(:has(.lc-settings-box)) li {
+html.lc-theme #sidebar .roundbox:has(ul.recent-unsolved-list) li {
   list-style: none !important;
   padding: 0 !important;
   margin: 0 !important;
@@ -2036,8 +2038,7 @@ html.lc-theme #sidebar .roundbox:has(a[href*="/problem/"]):not(:has(.lc-filter-b
 html.lc-theme .lc-unsolved-box li a,
 html.lc-theme .lc-unsolved-box a[href*="/problem/"],
 html.lc-theme .lc-unsolved-link,
-html.lc-theme #sidebar .roundbox:has(ul.recent-unsolved-list) li a,
-html.lc-theme #sidebar .roundbox:has(a[href*="/problem/"]):not(:has(.lc-filter-box)):not(:has(.lc-settings-box)) li a {
+html.lc-theme #sidebar .roundbox:has(ul.recent-unsolved-list) li a {
   display: block !important;
   background: #282828 !important;
   border: 1px solid transparent !important;
@@ -2060,12 +2061,245 @@ html.lc-theme #sidebar .roundbox:has(a[href*="/problem/"]):not(:has(.lc-filter-b
 html.lc-theme .lc-unsolved-box li a:hover,
 html.lc-theme .lc-unsolved-box a[href*="/problem/"]:hover,
 html.lc-theme .lc-unsolved-link:hover,
-html.lc-theme #sidebar .roundbox:has(ul.recent-unsolved-list) li a:hover,
-html.lc-theme #sidebar .roundbox:has(a[href*="/problem/"]):not(:has(.lc-filter-box)):not(:has(.lc-settings-box)) li a:hover {
+html.lc-theme #sidebar .roundbox:has(ul.recent-unsolved-list) li a:hover {
   background: #303030 !important;
   border-color: #404040 !important;
   color: var(--lc-accent-orange) !important;
   transform: none !important;
+}
+
+/* ==========================================================================
+   Codeforces User Rating Handle Colors (Permanent & Vibrant on Dark Theme)
+   ========================================================================== */
+
+/* Legendary Grandmaster (3000+) */
+html.lc-theme .user-legendary,
+html.lc-theme a.user-legendary,
+html.lc-theme span.user-legendary,
+html.lc-theme .rated-user.user-legendary {
+  color: #ff3333 !important;
+  font-weight: 700 !important;
+}
+
+html.lc-theme .user-legendary .legendary-user-first-letter,
+html.lc-theme a.user-legendary .legendary-user-first-letter,
+html.lc-theme .legendary-user-first-letter {
+  color: #ffffff !important;
+}
+
+/* International Grandmaster & Grandmaster (2400-2999) */
+html.lc-theme .user-red,
+html.lc-theme a.user-red,
+html.lc-theme span.user-red,
+html.lc-theme .rated-user.user-red {
+  color: #ff3333 !important;
+  font-weight: 700 !important;
+}
+
+/* International Master & Master (2100-2399) */
+html.lc-theme .user-orange,
+html.lc-theme a.user-orange,
+html.lc-theme span.user-orange,
+html.lc-theme .rated-user.user-orange {
+  color: #ff8c00 !important;
+  font-weight: 700 !important;
+}
+
+/* Candidate Master (1900-2099) */
+html.lc-theme .user-violet,
+html.lc-theme a.user-violet,
+html.lc-theme span.user-violet,
+html.lc-theme .rated-user.user-violet {
+  color: #bb55ff !important;
+  font-weight: 700 !important;
+}
+
+/* Expert (1600-1899) */
+html.lc-theme .user-blue,
+html.lc-theme a.user-blue,
+html.lc-theme span.user-blue,
+html.lc-theme .rated-user.user-blue {
+  color: #3b82f6 !important;
+  font-weight: 700 !important;
+}
+
+/* Specialist (1400-1599) */
+html.lc-theme .user-cyan,
+html.lc-theme a.user-cyan,
+html.lc-theme span.user-cyan,
+html.lc-theme .rated-user.user-cyan {
+  color: #03a89e !important;
+  font-weight: 700 !important;
+}
+
+/* Pupil (1200-1399) */
+html.lc-theme .user-green,
+html.lc-theme a.user-green,
+html.lc-theme span.user-green,
+html.lc-theme .rated-user.user-green {
+  color: #22c55e !important;
+  font-weight: 700 !important;
+}
+
+/* Newbie (<1200) */
+html.lc-theme .user-gray,
+html.lc-theme a.user-gray,
+html.lc-theme span.user-gray,
+html.lc-theme .rated-user.user-gray {
+  color: #9ca3af !important;
+  font-weight: 500 !important;
+}
+
+/* Admin / Headquarters */
+html.lc-theme .user-admin,
+html.lc-theme a.user-admin,
+html.lc-theme span.user-admin,
+html.lc-theme .rated-user.user-admin {
+  color: #ff007f !important;
+  font-weight: 700 !important;
+}
+
+html.lc-theme .user-black,
+html.lc-theme a.user-black,
+html.lc-theme span.user-black,
+html.lc-theme .rated-user.user-black {
+  color: #d1d5db !important;
+}
+
+/* Rating Hover States - Preserve Rating Colors! */
+html.lc-theme a.rated-user:hover,
+html.lc-theme a[class*="user-"]:hover {
+  text-decoration: underline !important;
+  opacity: 0.9 !important;
+}
+
+html.lc-theme a.user-legendary:hover {
+  color: #ff3333 !important;
+}
+
+html.lc-theme a.user-red:hover {
+  color: #ff3333 !important;
+}
+
+html.lc-theme a.user-orange:hover {
+  color: #ff8c00 !important;
+}
+
+html.lc-theme a.user-violet:hover {
+  color: #bb55ff !important;
+}
+
+html.lc-theme a.user-blue:hover {
+  color: #3b82f6 !important;
+}
+
+html.lc-theme a.user-cyan:hover {
+  color: #03a89e !important;
+}
+
+html.lc-theme a.user-green:hover {
+  color: #22c55e !important;
+}
+
+html.lc-theme a.user-gray:hover {
+  color: #9ca3af !important;
+}
+
+html.lc-theme a.user-admin:hover {
+  color: #ff007f !important;
+}
+
+/* ==========================================================================
+   Sidebar: Top Rated & Top Contributors Tables (Clean Modern Minimalist)
+   ========================================================================== */
+
+html.lc-theme #sidebar table.rtable {
+  width: 100% !important;
+  border-collapse: collapse !important;
+  border-spacing: 0 !important;
+  background: transparent !important;
+  margin: 6px 0 !important;
+}
+
+html.lc-theme #sidebar table.rtable th {
+  background: transparent !important;
+  color: #9ca3af !important;
+  font-size: 11px !important;
+  font-weight: 600 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.5px !important;
+  padding: 6px 4px !important;
+  border-bottom: 1px solid #333333 !important;
+}
+
+html.lc-theme #sidebar table.rtable td {
+  background: transparent !important;
+  padding: 6px 4px !important;
+  border-bottom: 1px solid #282828 !important;
+  border-radius: 0 !important;
+  font-size: 12px !important;
+  vertical-align: middle !important;
+}
+
+html.lc-theme #sidebar table.rtable tr:hover td {
+  background: rgba(255, 255, 255, 0.02) !important;
+}
+
+html.lc-theme #sidebar table.rtable td:first-child {
+  color: #6b7280 !important;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace !important;
+  font-size: 11px !important;
+  width: 24px !important;
+}
+
+html.lc-theme #sidebar table.rtable td:last-child {
+  color: #9ca3af !important;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace !important;
+  font-size: 11px !important;
+  text-align: right !important;
+}
+
+/* ==========================================================================
+   Sidebar: Recent Actions / Top Actions (Clean Minimalist Feed)
+   ========================================================================== */
+
+html.lc-theme #sidebar .recent-actions {
+  margin: 6px 0 !important;
+  padding: 0 !important;
+}
+
+html.lc-theme #sidebar .recent-actions ul {
+  list-style: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+html.lc-theme #sidebar .recent-actions li {
+  list-style: none !important;
+  padding: 8px 0 !important;
+  border-bottom: 1px solid #2a2a2a !important;
+  font-size: 12px !important;
+  line-height: 1.4 !important;
+}
+
+html.lc-theme #sidebar .recent-actions li:last-child {
+  border-bottom: none !important;
+}
+
+html.lc-theme #sidebar .recent-actions a:not(.rated-user):not([class*="user-"]) {
+  color: #eff1f6 !important;
+  font-weight: 500 !important;
+  transition: color 0.15s ease !important;
+}
+
+html.lc-theme #sidebar .recent-actions a:not(.rated-user):not([class*="user-"]):hover {
+  color: var(--lc-accent-orange) !important;
+}
+
+html.lc-theme #sidebar .recent-actions .notice,
+html.lc-theme #sidebar .recent-actions .format-humantime {
+  color: #6b7280 !important;
+  font-size: 11px !important;
 }
 
 /* ==========================================================================
@@ -2511,15 +2745,18 @@ html.lc-theme table.status tr:hover td {
    Contest Registration Page - Minimalist LeetCode Aesthetic
    ========================================================================== */
 
+html.lc-theme .lc-contest-reg-card,
 html.lc-theme .lc-contest-reg-box,
 html.lc-theme .roundbox:has(form[action*="contestRegistration"]),
 html.lc-theme .roundbox:has(form[action*="gymRegistration"]) {
   background: #222222 !important;
-  border: 1px solid #333333 !important;
-  border-radius: 16px !important;
-  padding: 24px 28px !important;
+  /* border: 1px solid #333333 !important; */
+  border-radius: 45px !important;
+  padding: 28px 32px !important;
   box-shadow: none !important;
   margin-bottom: 24px !important;
+  max-width: 860px !important;
+  box-sizing: border-box !important;
 }
 
 /* Registration Header */
@@ -2527,16 +2764,16 @@ html.lc-theme .roundbox:has(form[action*="gymRegistration"]) {
   display: flex !important;
   align-items: center !important;
   gap: 16px !important;
-  margin-bottom: 22px !important;
-  padding-bottom: 18px !important;
+  margin-bottom: 24px !important;
+  padding-bottom: 20px !important;
   border-bottom: 1px solid #333333 !important;
 }
 
 .lc-reg-icon-wrap {
-  width: 44px !important;
-  height: 44px !important;
-  border-radius: 12px !important;
-  background: rgba(255, 161, 22, 0.1) !important;
+  width: 48px !important;
+  height: 48px !important;
+  border-radius: 14px !important;
+  background: rgba(255, 161, 22, 0.12) !important;
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
@@ -2546,7 +2783,7 @@ html.lc-theme .roundbox:has(form[action*="gymRegistration"]) {
 .lc-reg-title-info {
   display: flex !important;
   flex-direction: column !important;
-  gap: 4px !important;
+  gap: 6px !important;
 }
 
 .lc-reg-badge-row {
@@ -2560,8 +2797,8 @@ html.lc-theme .roundbox:has(form[action*="gymRegistration"]) {
   color: #9ca3af !important;
   font-size: 11px !important;
   font-weight: 600 !important;
-  padding: 2px 8px !important;
-  border-radius: 6px !important;
+  padding: 3px 8px !important;
+  border-radius: 15px !important;
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace !important;
 }
 
@@ -2570,37 +2807,138 @@ html.lc-theme .roundbox:has(form[action*="gymRegistration"]) {
   color: #00b8a3 !important;
   font-size: 11px !important;
   font-weight: 600 !important;
-  padding: 2px 8px !important;
-  border-radius: 6px !important;
+  padding: 3px 8px !important;
+  border-radius: 15px !important;
   text-transform: uppercase !important;
   letter-spacing: 0.5px !important;
 }
 
 .lc-reg-heading {
-  font-size: 18px !important;
+  font-size: 22px !important;
   font-weight: 600 !important;
   color: #eff1f6 !important;
   margin: 0 !important;
   line-height: 1.3 !important;
 }
 
+/* Terms of Agreement Card (Rendered directly in card, replaces ugly textarea) */
+.lc-terms-card {
+  background: #181818 !important;
+  /* border: 1px solid #333333 !important; */
+  border-radius: 25px !important;
+  padding: 18px 22px !important;
+  max-width: 680px !important;
+  box-sizing: border-box !important;
+  box-shadow: none !important;
+}
+
+.lc-terms-card-header {
+  display: flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+  padding-bottom: 12px !important;
+  margin-bottom: 14px !important;
+  border-bottom: 1px solid #282828 !important;
+}
+
+.lc-terms-icon {
+  width: 32px !important;
+  height: 32px !important;
+  border-radius: 8px !important;
+  background: rgba(0, 184, 163, 0.12) !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  flex-shrink: 0 !important;
+}
+
+.lc-terms-title-wrap {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 2px !important;
+}
+
+.lc-terms-title {
+  color: #eff1f6 !important;
+  font-size: 14px !important;
+  font-weight: 600 !important;
+}
+
+.lc-terms-subtitle {
+  color: #9ca3af !important;
+  font-size: 12px !important;
+}
+
+.lc-terms-list {
+  list-style: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 10px !important;
+}
+
+.lc-terms-item {
+  list-style: none !important;
+  display: flex !important;
+  align-items: flex-start !important;
+  gap: 10px !important;
+  font-size: 13px !important;
+  line-height: 1.5 !important;
+  color: #d1d5db !important;
+}
+
+.lc-term-check {
+  margin-top: 2px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  flex-shrink: 0 !important;
+}
+
+.lc-term-text {
+  flex: 1 !important;
+  color: #d1d5db !important;
+}
+
+.lc-terms-link {
+  color: var(--lc-accent-orange) !important;
+  text-decoration: underline !important;
+  font-weight: 500 !important;
+  transition: opacity 0.15s ease !important;
+}
+
+.lc-terms-link:hover {
+  opacity: 0.8 !important;
+}
+
+/* Hide raw terms textarea */
+html.lc-theme textarea.terms,
+html.lc-theme textarea#registrationTerms,
+html.lc-theme .lc-reg-terms-textarea {
+  display: none !important;
+}
+
 /* Registration Form Table */
+html.lc-theme form.contestRegistration table.table-form,
+html.lc-theme .lc-contest-reg-card table.table-form,
 html.lc-theme .lc-contest-reg-box table.table-form,
 html.lc-theme .roundbox:has(form[action*="Registration"]) table.table-form {
   width: 100% !important;
+  max-width: 740px !important;
   border-collapse: separate !important;
-  border-spacing: 0 10px !important;
+  border-spacing: 0 16px !important;
   background: transparent !important;
 }
 
-html.lc-theme .lc-contest-reg-box table.table-form tr,
-html.lc-theme .roundbox:has(form[action*="Registration"]) table.table-form tr {
+html.lc-theme form.contestRegistration table.table-form tr,
+html.lc-theme .lc-contest-reg-card table.table-form tr {
   background: transparent !important;
 }
 
-html.lc-theme .lc-contest-reg-box table.table-form td,
-html.lc-theme .roundbox:has(form[action*="Registration"]) table.table-form td {
-  padding: 8px 10px !important;
+html.lc-theme form.contestRegistration table.table-form td,
+html.lc-theme .lc-contest-reg-card table.table-form td {
+  padding: 6px 10px !important;
   color: #eff1f6 !important;
   font-size: 13px !important;
   border: none !important;
@@ -2608,26 +2946,28 @@ html.lc-theme .roundbox:has(form[action*="Registration"]) table.table-form td {
   vertical-align: middle !important;
 }
 
-html.lc-theme .lc-contest-reg-box table.table-form td.field-name,
-html.lc-theme .roundbox:has(form[action*="Registration"]) table.table-form td.field-name {
+html.lc-theme form.contestRegistration table.table-form td.field-name,
+html.lc-theme .lc-contest-reg-card table.table-form td.field-name {
   color: #9ca3af !important;
-  font-weight: 500 !important;
+  font-weight: 600 !important;
   font-size: 13px !important;
-  width: 180px !important;
+  width: 160px !important;
+  vertical-align: top !important;
+  padding-top: 10px !important;
 }
 
-/* Option selectable tile */
+/* Option selectable tile (Take part as individual / team) */
 .lc-reg-option-tile {
   display: inline-flex !important;
   align-items: center !important;
   gap: 10px !important;
   background: #1a1a1a !important;
-  border: 1px solid #333333 !important;
-  border-radius: 8px !important;
-  padding: 10px 14px !important;
+  /* border: 1px solid #333333 !important; */
+  border-radius: 25px !important;
+  padding: 10px 16px !important;
   cursor: pointer !important;
   transition: border-color 0.15s ease, background 0.15s ease !important;
-  margin-right: 8px !important;
+  margin-right: 10px !important;
   margin-bottom: 6px !important;
   user-select: none !important;
 }
@@ -2648,25 +2988,31 @@ html.lc-theme .roundbox:has(form[action*="Registration"]) table.table-form td.fi
   justify-content: center !important;
 }
 
+.lc-reg-option-tile label {
+  color: #eff1f6 !important;
+  font-size: 13px !important;
+  font-weight: 500 !important;
+  cursor: pointer !important;
+  margin: 0 !important;
+}
+
 /* Radio buttons & checkboxes on registration form */
-html.lc-theme .lc-contest-reg-box input[type="radio"],
-html.lc-theme .roundbox:has(form[action*="Registration"]) input[type="radio"],
-html.lc-theme .lc-contest-reg-box input[type="checkbox"],
-html.lc-theme .roundbox:has(form[action*="Registration"]) input[type="checkbox"] {
+html.lc-theme form.contestRegistration input[type="radio"],
+html.lc-theme .lc-contest-reg-card input[type="radio"],
+html.lc-theme form.contestRegistration input[type="checkbox"],
+html.lc-theme .lc-contest-reg-card input[type="checkbox"] {
   accent-color: var(--lc-accent-orange) !important;
-  width: 15px !important;
-  height: 15px !important;
+  width: 16px !important;
+  height: 16px !important;
   cursor: pointer !important;
   vertical-align: middle !important;
 }
 
 /* Select dropdowns and Text inputs */
-html.lc-theme .lc-contest-reg-box select,
-html.lc-theme .roundbox:has(form[action*="Registration"]) select,
-html.lc-theme .lc-contest-reg-box input[type="text"],
-html.lc-theme .roundbox:has(form[action*="Registration"]) input[type="text"],
-html.lc-theme .lc-contest-reg-box input[type="password"],
-html.lc-theme .roundbox:has(form[action*="Registration"]) input[type="password"] {
+html.lc-theme form.contestRegistration select,
+html.lc-theme .lc-contest-reg-card select,
+html.lc-theme form.contestRegistration input[type="text"],
+html.lc-theme .lc-contest-reg-card input[type="text"] {
   background: #1a1a1a !important;
   border: 1px solid #383838 !important;
   border-radius: 8px !important;
@@ -2678,19 +3024,19 @@ html.lc-theme .roundbox:has(form[action*="Registration"]) input[type="password"]
   box-sizing: border-box !important;
 }
 
-html.lc-theme .lc-contest-reg-box select:focus,
-html.lc-theme .roundbox:has(form[action*="Registration"]) select:focus,
-html.lc-theme .lc-contest-reg-box input[type="text"]:focus,
-html.lc-theme .roundbox:has(form[action*="Registration"]) input[type="text"]:focus {
+html.lc-theme form.contestRegistration select:focus,
+html.lc-theme .lc-contest-reg-card select:focus,
+html.lc-theme form.contestRegistration input[type="text"]:focus,
+html.lc-theme .lc-contest-reg-card input[type="text"]:focus {
   border-color: var(--lc-accent-orange) !important;
 }
 
 /* Modern Callout Banners for Notices */
 .lc-reg-callout,
-html.lc-theme .lc-contest-reg-box .notice,
-html.lc-theme .lc-contest-reg-box .shift,
-html.lc-theme .roundbox:has(form[action*="Registration"]) .notice,
-html.lc-theme .roundbox:has(form[action*="Registration"]) .shift {
+html.lc-theme form.contestRegistration .notice,
+html.lc-theme form.contestRegistration .shift,
+html.lc-theme .lc-contest-reg-card .notice,
+html.lc-theme .lc-contest-reg-card .shift {
   background: rgba(255, 161, 22, 0.08) !important;
   border: 1px solid rgba(255, 161, 22, 0.25) !important;
   border-radius: 10px !important;
@@ -2711,23 +3057,25 @@ html.lc-theme .roundbox:has(form[action*="Registration"]) .shift {
   flex-shrink: 0 !important;
 }
 
-/* Action Buttons & Links */
-.lc-reg-actions-wrap {
-  display: flex !important;
+/* Submit Actions Wrap */
+.lc-reg-submit-wrap {
+  display: inline-flex !important;
   align-items: center !important;
-  gap: 18px !important;
-  margin-top: 16px !important;
-  padding-top: 12px !important;
+  justify-content: center !important;
+  gap: 16px !important;
+  position: relative !important;
+  margin-top: 10px !important;
 }
 
 .lc-reg-btn,
-html.lc-theme .lc-contest-reg-box input[type="submit"],
-html.lc-theme .roundbox:has(form[action*="Registration"]) input[type="submit"] {
-  height: 36px !important;
+.lc-reg-submit-btn,
+html.lc-theme form.contestRegistration input[type="submit"],
+html.lc-theme .lc-contest-reg-card input[type="submit"] {
+  height: 42px !important;
   border-radius: 25px !important;
-  padding: 0 24px !important;
-  font-size: 13px !important;
-  font-weight: 600 !important;
+  padding: 0 42px !important;
+  font-size: 14px !important;
+  font-weight: 700 !important;
   border: none !important;
   cursor: pointer !important;
   transition: all 0.15s ease !important;
@@ -2739,53 +3087,46 @@ html.lc-theme .roundbox:has(form[action*="Registration"]) input[type="submit"] {
 }
 
 .lc-reg-btn-primary,
-html.lc-theme .lc-contest-reg-box input[type="submit"]:not([value*="Cancel"]):not([value*="Unregister"]),
-html.lc-theme .roundbox:has(form[action*="Registration"]) input[type="submit"]:not([value*="Cancel"]):not([value*="Unregister"]) {
+.lc-reg-submit-btn,
+html.lc-theme form.contestRegistration input[type="submit"]:not([value*="Cancel"]):not([value*="Unregister"]),
+html.lc-theme .lc-contest-reg-card input[type="submit"]:not([value*="Cancel"]):not([value*="Unregister"]) {
   background: var(--lc-accent-orange) !important;
   color: #111111 !important;
 }
 
 .lc-reg-btn-primary:hover,
-html.lc-theme .lc-contest-reg-box input[type="submit"]:not([value*="Cancel"]):not([value*="Unregister"]):hover,
-html.lc-theme .roundbox:has(form[action*="Registration"]) input[type="submit"]:not([value*="Cancel"]):not([value*="Unregister"]):hover {
+.lc-reg-submit-btn:hover,
+html.lc-theme form.contestRegistration input[type="submit"]:not([value*="Cancel"]):not([value*="Unregister"]):hover,
+html.lc-theme .lc-contest-reg-card input[type="submit"]:not([value*="Cancel"]):not([value*="Unregister"]):hover {
   background: var(--lc-accent-orange-hover) !important;
   box-shadow: none !important;
 }
 
 .lc-reg-btn-danger,
-html.lc-theme .lc-contest-reg-box input[type="submit"][value*="Cancel"],
-html.lc-theme .lc-contest-reg-box input[type="submit"][value*="Unregister"],
-html.lc-theme .roundbox:has(form[action*="Registration"]) input[type="submit"][value*="Cancel"],
-html.lc-theme .roundbox:has(form[action*="Registration"]) input[type="submit"][value*="Unregister"] {
+html.lc-theme form.contestRegistration input[type="submit"][value*="Cancel"],
+html.lc-theme form.contestRegistration input[type="submit"][value*="Unregister"],
+html.lc-theme .lc-contest-reg-card input[type="submit"][value*="Cancel"],
+html.lc-theme .lc-contest-reg-card input[type="submit"][value*="Unregister"] {
   background: #282828 !important;
   color: #f87171 !important;
   border: 1px solid rgba(248, 113, 113, 0.35) !important;
 }
 
 .lc-reg-btn-danger:hover,
-html.lc-theme .lc-contest-reg-box input[type="submit"][value*="Cancel"]:hover,
-html.lc-theme .lc-contest-reg-box input[type="submit"][value*="Unregister"]:hover,
-html.lc-theme .roundbox:has(form[action*="Registration"]) input[type="submit"][value*="Cancel"]:hover,
-html.lc-theme .roundbox:has(form[action*="Registration"]) input[type="submit"][value*="Unregister"]:hover {
+html.lc-theme form.contestRegistration input[type="submit"][value*="Cancel"]:hover,
+html.lc-theme form.contestRegistration input[type="submit"][value*="Unregister"]:hover,
+html.lc-theme .lc-contest-reg-card input[type="submit"][value*="Cancel"]:hover,
+html.lc-theme .lc-contest-reg-card input[type="submit"][value*="Unregister"]:hover {
   background: rgba(248, 113, 113, 0.15) !important;
   border-color: #f87171 !important;
   box-shadow: none !important;
 }
 
-.lc-reg-back-link {
-  display: inline-flex !important;
-  align-items: center !important;
-  gap: 6px !important;
-  color: #9ca3af !important;
-  font-size: 13px !important;
-  font-weight: 500 !important;
-  text-decoration: none !important;
-  transition: color 0.15s ease !important;
-}
-
-.lc-reg-back-link:hover {
-  color: var(--lc-accent-orange) !important;
-  text-decoration: none !important;
+/* Ajax loading gif */
+html.lc-theme form.contestRegistration .ajax-loading-gif {
+  filter: brightness(0.8) !important;
+  vertical-align: middle !important;
+  margin-left: 8px !important;
 }
 
 /* Sidebar cards on Contest Registration Page */

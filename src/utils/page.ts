@@ -23,7 +23,8 @@ export const isContestRegistrationPage = (): boolean => {
     path.startsWith('/contestRegistration') ||
     path.includes('/contestRegistration/') ||
     path.startsWith('/gymRegistration') ||
-    path.includes('/gymRegistration/')
+    path.includes('/gymRegistration/') ||
+    document.querySelector('form.contestRegistration') !== null
   );
 };
 
