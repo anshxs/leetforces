@@ -6,13 +6,12 @@
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.9-blue.svg)](https://www.typescriptlang.org/)
 [![WXT](https://img.shields.io/badge/Framework-WXT-red.svg)](https://wxt.dev/)
 [![React](https://img.shields.io/badge/React-19-61dafb.svg)](https://react.js.org/)
-[![Manifest V3](https://img.shields.io/badge/Chrome-Manifest_V3-green.svg)](https://developer.chrome.com/docs/extensions/mv3/intro/)
 
 ---
 <img width="1512" height="982" alt="Screenshot 2026-11-08 at 15 43 22" src="https://github.com/user-attachments/assets/906f983a-ed6e-4610-b07d-453364692c67" />
 
 
-## 📖 Overview
+## Overview
 
 **LeetForces** is an open-source browser extension that brings the modern, focused, and distraction-free user interface of **LeetCode** to **Codeforces**.
 
@@ -20,32 +19,32 @@ While Codeforces provides the best competitive programming problems and contests
 
 ---
 
-## ✨ Features
+## Features
 
-### 📋 1. LeetCode-Style Problemset Table
+### 1. LeetCode-Style Problemset Table
 - **Clean Problem Tiles**: Rounded row tiles with zero harsh shadows and subtle hover states.
 - **No Underline Typography**: Problem titles render in clean `#ffffff` without distracting browser default underlines.
 - **Color-Coded Difficulty**: Ratings rendered with clean LeetCode difficulty tags (Easy `<1200`, Medium `1200–1800`, Hard `>1800`).
 - **Quick Action Bar**:
-  - ⭐ **Favorites**: Bookmark problems locally with persistent storage.
-  - 🚀 **Quick Submit**: One-click jump to the problem submission page.
-  - 🏷️ **Topics Modal**: Fast dialog showing problem algorithm tags with direct search links.
+  - **Favorites**: Bookmark problems locally with persistent storage.
+  - **Quick Submit**: One-click jump to the problem submission page.
+  - **Topics Modal**: Fast dialog showing problem algorithm tags with direct search links.
 - **Solved Counters**: Clean user solve metrics without cluttered default icons.
 - **Shuffle / Pick One**: Randomly pick an unsolved problem matching your active filters.
 
-### 🎯 2. Modernized Sidebar Filters & Widgets
+### 2. Modernized Sidebar Filters & Widgets
 - **Difficulty Presets**: Instant filter buttons (`All`, `Easy <1200`, `Med 1200–1800`, `Hard >1800`).
 - **Tag Search**: Real-time searchable problem tag checklist with custom styled checkboxes.
 - **Horizontal Settings Row**: Streamlined checkbox controls aligned cleanly in horizontal flex rows.
 - **Compact Last Unsolved**: Scrollable container displaying recent unsolved attempts with full title tooltips.
 - **Preserved Sidebar Links**: "View all →" and "Detailed →" buttons for **Top Rated**, **Top Contributors**, **Streams**, and **Recent Actions** are preserved and styled as sleek dark pill buttons.
 
-### 🏆 3. Pay Attention & Contest Cards
+### 3. Pay Attention & Contest Cards
 - **Dark Zero-Shadow Cards**: Custom `#282828` / `#222222` aesthetic with 25px rounded corners.
 - **Live Countdown Ticker**: Real-time timer countdown to upcoming rounds.
 - **Direct Registration Links**: Links directly to the official `https://codeforces.com/contestRegistration/${id}` registration endpoint.
 
-### 📝 4. Contest Registration Page Redesign
+### 4. Contest Registration Page Redesign
 - **Full Form Restyle**: Converts the raw registration page into a modern `#222222` card container.
 - **Contest Header**: Features an amber **Trophy icon**, contest ID badge, and participation status badge (`Official Round` / `Virtual Participation`).
 - **Rendered Fair Play Checklist**: Replaces the ugly yellow `#ffd` `<textarea>` with an interactive checklist formatted with teal `CheckCircle2` icons.
@@ -53,7 +52,7 @@ While Codeforces provides the best competitive programming problems and contests
 - **Selectable Option Cards**: Converted radio buttons for Individual vs. Team participation into modern selectable tiles with LeetCode orange borders.
 - **Centered Submit Button**: LeetCode orange pill button with smooth hover transitions.
 
-### 🌈 5. Preserved User Rating Colors
+### 5. Preserved User Rating Colors
 - **Full Rank Fidelity**: Preserves all Codeforces rank colors everywhere on the platform:
   - **Legendary Grandmaster** (`#ff3333` with crisp white first letter)
   - **Grandmaster & IGM** (`#ff3333`)
@@ -65,22 +64,22 @@ While Codeforces provides the best competitive programming problems and contests
   - **Newbie** (`#9ca3af`)
 - Rating handles strictly retain their color on hover with an underline.
 
-### 🔢 6. Perfectly Proportioned Pagination
+### 6. Perfectly Proportioned Pagination
 - **32×32px Square Buttons**: Every page button has consistent sizing, rounded corners, and smooth hover states.
 - **Distortion-Free Active Button**: The selected page is styled in LeetCode orange (`#ffa116`) with dark `#111111` bold text, with zero horizontal or vertical distortion.
 
-### 🛡️ 7. Strict Scope Isolation
+### 7. Strict Scope Isolation
 - **Targeted Application**: Enhancements only run on **Problemset** (`/problemset*`) and **Contest Registration** (`/contestRegistration/*`, `/gymRegistration/*`).
 - **100% Native Everywhere Else**: Profiles, blogs, gym, contest standings, and groups remain 100% native Codeforces without any layout interference.
 
-### ⚡ 8. Minimalist Popup UI
+### 8. Minimalist Popup UI
 - **Single Master Toggle**: Instantly enable or disable the LeetCode theme.
 - **Rounded Window Borders**: 20px rounded window framing.
 - **Community Actions**: Direct buttons for **Buy me a coffee** and **Star on GitHub**.
 
 ---
 
-## 📂 Project Architecture & Folder Structure
+## Project Architecture & Folder Structure
 
 LeetForces is built using [WXT](https://wxt.dev/) with a clean, modular TypeScript architecture:
 
@@ -139,7 +138,7 @@ leetforces/
 
 ---
 
-## 🛠️ Development & Installation
+## Development & Installation
 
 ### Prerequisites
 - Node.js (v18 or newer)
@@ -217,13 +216,13 @@ Contributions, bug reports, and feature suggestions are very welcome!
 ## ☕ Support & Community
 
 If you find LeetForces helpful for your daily competitive programming practice:
-- ⭐ **Star this repository** on GitHub: [github.com/anshxs/leetforces](https://github.com/anshxs/leetforces)
-- ☕ **Buy me a coffee**: [buymeacoffee.com/anshxs](https://buymeacoffee.com/anshxs)
-- 💬 **Share feedback**: Open an issue or suggestion on GitHub.
+- **Star this repository** on GitHub: [github.com/anshxs/leetforces](https://github.com/anshxs/leetforces)
+- **Buy me a coffee**: [buymeacoffee.com/anshxs](https://buymeacoffee.com/anshxs)
+- **Share feedback**: Open an issue or suggestion on GitHub.
 
 ---
 
-## 📄 License
+## License
 
 This project is licensed under the [MIT License](LICENSE).
 Codeforces is a registered trademark of Mike Mirzayanov and Codeforces. LeetForces is an independent open-source project and is not affiliated with or endorsed by Codeforces or LeetCode.
