@@ -9,6 +9,8 @@
 [![Manifest V3](https://img.shields.io/badge/Chrome-Manifest_V3-green.svg)](https://developer.chrome.com/docs/extensions/mv3/intro/)
 
 ---
+<img width="1512" height="982" alt="Screenshot 2026-11-08 at 15 43 22" src="https://github.com/user-attachments/assets/906f983a-ed6e-4610-b07d-453364692c67" />
+
 
 ## 📖 Overview
 
